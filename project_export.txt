@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>bruce_blog_v2</title>
+    <title>hello_bruce</title>
   </head>
   <body>
     <div id="root"></div>
@@ -65,13 +65,13 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ===== ./package-lock.json =====
 {
-  "name": "bruce_blog_v2",
+  "name": "hello_bruce",
   "version": "0.0.0",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
-      "name": "bruce_blog_v2",
+      "name": "hello_bruce",
       "version": "0.0.0",
       "dependencies": {
         "autoprefixer": "^10.4.27",
@@ -3710,7 +3710,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ===== ./package.json =====
 {
-  "name": "bruce_blog_v2",
+  "name": "hello_bruce",
   "private": true,
   "version": "0.0.0",
   "type": "module",
