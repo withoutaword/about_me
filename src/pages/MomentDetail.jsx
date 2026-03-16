@@ -20,6 +20,8 @@ export default function MomentDetail() {
   return (
         <div className="min-h-screen bg-dark">
       <Navbar />
+
+      <section className="pt-32 pb-20">
     <div className="max-w-2xl mx-auto px-6 py-12">
 
       <p className="text-sm text-gray-400 mb-4">{date}</p>
@@ -42,6 +44,7 @@ export default function MomentDetail() {
       )}
 
     </div>
+    </section>
     <Footer />
     </div>
   );
