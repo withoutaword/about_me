@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { moments } from "../data/moments";
 import Tag from "../components/Tag";
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function MomentDetail() {
 
@@ -16,6 +18,8 @@ export default function MomentDetail() {
   });
 
   return (
+        <div className="min-h-screen bg-dark">
+      <Navbar />
     <div className="max-w-2xl mx-auto px-6 py-12">
 
       <p className="text-sm text-gray-400 mb-4">{date}</p>
@@ -37,6 +41,8 @@ export default function MomentDetail() {
         />
       )}
 
+    </div>
+    <Footer />
     </div>
   );
 }

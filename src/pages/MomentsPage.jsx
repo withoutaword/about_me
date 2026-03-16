@@ -1,12 +1,16 @@
 import { moments } from "../data/moments";
 import { Link } from "react-router-dom";
 import Tag from "../components/Tag";
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function Moments() {
 
   const sorted = [...moments].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
+    <div className="min-h-screen bg-dark">
+      <Navbar />
     <div className="max-w-2xl mx-auto px-6 py-12">
 
       <h1 className="text-3xl font-bold mb-12">Moments</h1>
@@ -47,6 +51,9 @@ export default function Moments() {
         })}
 
       </div>
+
+    </div>
+    <Footer />
 
     </div>
   );
