@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +20,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'About', path: '/' },
+    { name: 'Career', path: '/career' },
     { name: 'Beliefs', path: '/beliefs' },
     { name: 'Photography', path: '/photography' },
     { name: 'Projects', path: '/projects' },
@@ -26,14 +29,14 @@ const Navbar = () => {
 
   return (
     <motion.header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-dark/90 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? `bg-[var(--bg-color)]/90 backdrop-blur-md shadow-lg ${theme === 'cyber' ? 'glow-box' : ''}` : 'bg-transparent'}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <motion.div 
-          className="text-xl font-bold text-white"
+          className={`text-xl font-bold ${theme === 'cyber' ? 'glow-text' : 'text-white'}`}
           whileHover={{ scale: 1.05 }}
         >
           Bruce W
@@ -44,7 +47,7 @@ const Navbar = () => {
             <Link
               key={item.name}
               to={item.path}
-              className={`text-sm font-medium transition-colors ${location.pathname === item.path ? 'text-primary' : 'text-gray-300 hover:text-white'}`}
+              className={`text-sm font-medium transition-colors ${location.pathname === item.path ? 'text-[var(--primary-color)]' : 'text-[var(--text-muted)] hover:text-[var(--text-color)]'}`}
             >
               <motion.span
                 whileHover={{ scale: 1.1 }}
@@ -77,10 +80,10 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            className="md:hidden bg-darkGray py-4 px-4 absolute top-full left-0 right-0 z-50"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-[var(--bg-secondary)] py-4 px-4 absolute top-full left-0 right-0 z-50"
+            initial={{ opacity: 0, maxHeight: 0 }}
+            animate={{ opacity: 1, maxHeight: 500 }}
+            exit={{ opacity: 0, maxHeight: 0 }}
             transition={{ duration: 0.3 }}
           >
             <div className="flex flex-col space-y-4">
@@ -88,7 +91,7 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`text-sm font-medium transition-colors ${location.pathname === item.path ? 'text-primary' : 'text-gray-300 hover:text-white'}`}
+                  className={`text-sm font-medium transition-colors ${location.pathname === item.path ? 'text-[var(--primary-color)]' : 'text-[var(--text-muted)] hover:text-[var(--text-color)]'}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -103,3 +106,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

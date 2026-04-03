@@ -3,9 +3,22 @@
 @tailwind utilities;
 
 :root {
+  /* Default Theme */
   --bg-color: #111111;
-  --text-color: #ffffff;
+  --bg-secondary: #1e1e1e;
   --primary-color: #0070f3;
+  --secondary-color: #f0f0f0;
+  --text-color: #ffffff;
+  --text-muted: #9ca3af;
+}
+
+[data-theme="cyber"] {
+  --bg-color: #0a0a1a;
+  --bg-secondary: #0f1525;
+  --primary-color: #00ffff;
+  --secondary-color: #0088ff;
+  --text-color: #e0f7ff;
+  --text-muted: #7ec8e3;
 }
 
 body {
@@ -13,15 +26,103 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
 }
 
-/* 自定义滚动条 */
+/* Matrix Rain Background */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  background: #0a0a1a;
+}
+
+.matrix-column {
+  position: absolute;
+  top: -500px;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  line-height: 18px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  animation: matrix-rain 12s linear infinite;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(100vh + 500px));
+  }
+}
+
+/* Scanline Effect */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  animation: scanline-move 0.1s linear infinite;
+}
+
+@keyframes scanline-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 2px;
+  }
+}
+
+/* Glow Effects */
+.glow-text {
+  text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+}
+
+.glow-box {
+  box-shadow: 0 0 15px var(--primary-color), 0 0 30px color-mix(in srgb, var(--primary-color) 30%, transparent);
+}
+
+/* Pulse Animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px var(--primary-color), 0 0 30px color-mix(in srgb, var(--primary-color) 30%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 25px var(--primary-color), 0 0 50px color-mix(in srgb, var(--primary-color) 50%, transparent);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e1e1e;
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -33,12 +134,12 @@ body {
   background: #555;
 }
 
-/* 平滑滚动 */
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* 动画类 */
+/* Animation classes */
 .fade-in {
   animation: fadeIn 0.8s ease-in-out;
 }
@@ -54,13 +155,12 @@ html {
   }
 }
 
-/* 卡片悬停效果 */
+/* Card hover effect */
 .card-hover {
   transition: all 0.3s ease;
 }
 
 .card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 112, 243, 0.1);
+  box-shadow: 0 10px 25px color-mix(in srgb, var(--primary-color) 10%, transparent);
 }
-

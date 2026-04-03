@@ -28,7 +28,7 @@ const Beliefs = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen bg-[var(--bg-color)]">
       <Navbar />
       
       <section className="pt-32 pb-20">
@@ -39,8 +39,8 @@ const Beliefs = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">Beliefs</h1>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-bold text-[var(--text-color)] mb-4">Beliefs</h1>
+            <p className="text-[var(--text-muted)] text-lg max-w-2xl mx-auto">
               My personal philosophy and core beliefs that guide my approach to life and work
             </p>
           </motion.div>
@@ -52,10 +52,10 @@ const Beliefs = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-darkGray p-8 rounded-lg"
+                className="bg-[var(--bg-secondary)] p-8 rounded-lg"
               >
-                <h2 className="text-2xl font-bold text-white mb-4">{belief.title}</h2>
-                <p className="text-gray-400 leading-relaxed">{belief.description}</p>
+                <h2 className="text-2xl font-bold text-[var(--text-color)] mb-4">{belief.title}</h2>
+                <p className="text-[var(--text-muted)] leading-relaxed">{belief.description}</p>
               </motion.div>
             ))}
           </div>
@@ -68,3 +68,4 @@ const Beliefs = () => {
 };
 
 export default Beliefs;
+

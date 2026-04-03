@@ -9,7 +9,7 @@ export default function Moments() {
   const sorted = [...moments].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen bg-[var(--bg-color)]">
       <Navbar />
 
       <section className="pt-32 pb-20">
@@ -31,9 +31,9 @@ export default function Moments() {
 
               <div className="mb-10 ml-6">
 
-                <span className="absolute w-3 h-3 bg-black rounded-full -left-1.5"></span>
+                <span className="absolute w-3 h-3 bg-[var(--bg-color)] rounded-full -left-1.5"></span>
 
-                <p className="text-sm text-gray-400">{date}</p>
+                <p className="text-sm text-[var(--text-muted)]">{date}</p>
 
                 <p className="text-lg leading-relaxed mb-2">
                   {m.text}

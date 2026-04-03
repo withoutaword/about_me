@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const Footer = () => {
   return (
@@ -43,6 +44,10 @@ const Footer = () => {
               </svg>
             </a>
           </motion.div>
+          
+          <div className="mt-6 md:mt-0">
+            <ThemeSwitcher />
+          </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
           <p>© {new Date().getFullYear()} Bruce W. All rights reserved.</p>
@@ -53,3 +58,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

@@ -51,7 +51,7 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen bg-[var(--bg-color)]">
       <Navbar />
       
       <section className="pt-32 pb-20">
@@ -62,8 +62,8 @@ const Projects = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">Projects</h1>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-bold text-[var(--text-color)] mb-4">Projects</h1>
+            <p className="text-[var(--text-muted)] text-lg max-w-2xl mx-auto">
               A collection of my personal and professional projects
             </p>
           </motion.div>
@@ -82,3 +82,4 @@ const Projects = () => {
 };
 
 export default Projects;
+
