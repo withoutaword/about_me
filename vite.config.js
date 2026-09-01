@@ -11,6 +11,10 @@ const virtualProjectsId = 'virtual:projects'
 const resolvedVirtualProjectsId = `\0${virtualProjectsId}`
 const virtualPhotographyId = 'virtual:photography'
 const resolvedVirtualPhotographyId = `\0${virtualPhotographyId}`
+const virtualPatentsId = 'virtual:patents'
+const resolvedVirtualPatentsId = `\0${virtualPatentsId}`
+const virtualAwardsId = 'virtual:awards'
+const resolvedVirtualAwardsId = `\0${virtualAwardsId}`
 
 const plainText = (markdown) => markdown
   .replace(/^#{1,6}\s+/gm, '')
@@ -148,7 +152,104 @@ const photographyPlugin = () => ({
   },
 })
 
+const patentsPlugin = () => ({
+  name: 'local-markdown-patents',
+  resolveId(id) {
+    return id === virtualPatentsId ? resolvedVirtualPatentsId : null
+  },
+  load(id) {
+    if (id !== resolvedVirtualPatentsId) return null
+
+    const projectRoot = path.dirname(fileURLToPath(import.meta.url))
+    const patentsDir = path.resolve(projectRoot, 'public/patent')
+    const files = fs.existsSync(patentsDir)
+      ? fs.readdirSync(patentsDir).filter((file) => file.endsWith('.md'))
+      : []
+
+    const patents = files.map((filename) => {
+      const filePath = path.join(patentsDir, filename)
+      this.addWatchFile(filePath)
+      const source = fs.readFileSync(filePath, 'utf8')
+      const { data, content } = matter(source)
+      const slug = filename.replace(/\.md$/, '')
+      const patentNumber = data.patentNumber || slug.split('-')[0]
+      const heading = content.match(/^#\s+(.+)$/m)?.[1]?.trim()
+      const officialUrl = data.link || content.match(/https:\/\/patents\.google\.com\/\S+/)?.[0] || null
+      const withoutHeading = heading ? content.replace(/^\s*#\s+.+\r?\n/, '') : content
+      const markdown = withoutHeading
+        .replace(/^###\s+link\s*$/gim, '')
+        .replace(/https:\/\/patents\.google\.com\/\S+/g, '')
+        .trim()
+      const text = plainText(markdown).replace(/^Abstract\s*/i, '')
+
+      return {
+        slug,
+        patentNumber,
+        title: data.title || heading || slug.replace(`${patentNumber}-`, ''),
+        summary: data.summary || `${text.slice(0, 220)}${text.length > 220 ? '…' : ''}`,
+        officialUrl,
+        published: data.published !== false,
+        content: markdown,
+      }
+    }).filter((patent) => patent.published)
+      .sort((a, b) => b.patentNumber.localeCompare(a.patentNumber))
+
+    return `export default ${JSON.stringify(patents)}`
+  },
+})
+
+const awardsPlugin = () => ({
+  name: 'local-markdown-awards',
+  resolveId(id) {
+    return id === virtualAwardsId ? resolvedVirtualAwardsId : null
+  },
+  load(id) {
+    if (id !== resolvedVirtualAwardsId) return null
+
+    const projectRoot = path.dirname(fileURLToPath(import.meta.url))
+    const awardsDir = path.resolve(projectRoot, 'public/award')
+    const files = fs.existsSync(awardsDir)
+      ? fs.readdirSync(awardsDir).filter((file) => file.endsWith('.md'))
+      : []
+
+    const awards = files.map((filename) => {
+      const filePath = path.join(awardsDir, filename)
+      this.addWatchFile(filePath)
+      const source = fs.readFileSync(filePath, 'utf8')
+      const { data, content } = matter(source)
+      const slug = filename.replace(/\.md$/, '')
+      const filenameTitle = slug
+        .replace(/^\d{4}(?:\d{2})?[._-]?/, '')
+        .replace(/([a-z])([A-Z])/g, '$1 $2')
+        .trim()
+      const imageReference = content.match(/!\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/)?.[1] || null
+      const markdown = content.replace(
+        /!\[\[([^\]]+)\]\]/g,
+        (_, reference) => {
+          const [image, alt = image] = reference.split('|')
+          return `![${alt}](/award/image/${encodeURIComponent(image)})`
+        },
+      )
+      const text = plainText(markdown)
+
+      return {
+        slug,
+        title: data.title || filenameTitle || slug,
+        date: data.date || dateFromFilename(filename),
+        summary: data.summary || `${text.slice(0, 180)}${text.length > 180 ? '…' : ''}`,
+        organization: data.organization || null,
+        cover: data.cover || (imageReference ? `/award/image/${encodeURIComponent(imageReference)}` : null),
+        published: data.published !== false,
+        content: markdown,
+      }
+    }).filter((award) => award.published)
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+
+    return `export default ${JSON.stringify(awards)}`
+  },
+})
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), articlesPlugin(), projectsPlugin(), photographyPlugin()],
+  plugins: [react(), articlesPlugin(), projectsPlugin(), photographyPlugin(), patentsPlugin(), awardsPlugin()],
 })

@@ -197,6 +197,102 @@ html {
   box-shadow: 0 10px 25px color-mix(in srgb, var(--primary-color) 10%, transparent);
 }
 
+/* Professional portfolio */
+.primary-cta,
+.secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--primary-color);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 650;
+  padding: 0.75rem 1.25rem;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.primary-cta {
+  background: var(--primary-color);
+  color: var(--bg-color);
+}
+
+.secondary-cta {
+  color: var(--primary-color);
+}
+
+.primary-cta:hover,
+.secondary-cta:hover {
+  transform: translateY(-2px);
+}
+
+.secondary-cta:hover {
+  background: color-mix(in srgb, var(--primary-color) 10%, transparent);
+}
+
+.section-heading > p {
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.22em;
+}
+
+.section-heading > h2 {
+  color: var(--text-color);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-top: 0.75rem;
+}
+
+.capability-card {
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--bg-secondary) 82%, transparent);
+  padding: 1.75rem;
+}
+
+.capability-card > span {
+  color: var(--primary-color);
+  font: 600 0.75rem/1 'Courier New', monospace;
+}
+
+.capability-card > h3 {
+  color: var(--text-color);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+.capability-card > p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-top: 0.75rem;
+}
+
+.brand-panel {
+  border: 1px solid var(--border-color);
+  border-radius: 1.25rem;
+  background: color-mix(in srgb, var(--bg-secondary) 80%, transparent);
+  padding: clamp(1.75rem, 5vw, 4rem);
+}
+
+.career-tag {
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+}
+
+.footer-link {
+  color: var(--text-muted);
+  transition: color 180ms ease;
+}
+
+.footer-link:hover {
+  color: var(--primary-color);
+}
+
 /* Articles */
 .articles-page,
 .article-detail,
@@ -258,6 +354,122 @@ html {
 .article-list {
   display: grid;
   gap: 1.25rem;
+}
+
+.patent-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.patent-card {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--bg-secondary) 86%, transparent);
+  padding: 1.5rem;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.patent-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-color);
+}
+
+.patent-number {
+  color: var(--primary-color);
+  font: 600 0.85rem/1.5 'Courier New', monospace;
+  letter-spacing: 0.04em;
+}
+
+.patent-card h2 {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.patent-card h2 a:hover {
+  color: var(--primary-color);
+}
+
+.patent-card p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-top: 0.75rem;
+}
+
+.patent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.patent-actions a {
+  color: var(--primary-color);
+  font-size: 0.85rem;
+}
+
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.award-card {
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--bg-secondary) 86%, transparent);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.award-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-color);
+}
+
+.award-card > img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.award-card-body {
+  padding: 1.5rem;
+}
+
+.award-card time,
+.award-organization {
+  color: var(--primary-color);
+  font-size: 0.78rem;
+}
+
+.award-card h2 {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 0.6rem;
+}
+
+.award-card h2 a:hover {
+  color: var(--primary-color);
+}
+
+.award-card-body > p:not(.award-organization) {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-top: 0.8rem;
+}
+
+.award-link {
+  display: inline-block;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  margin-top: 1rem;
 }
 
 .article-card {
@@ -455,4 +667,6 @@ body[data-theme="ins"] .article-prose pre {
   .article-prose { font-size: 1rem; line-height: 1.9; }
   .article-pagination { grid-template-columns: 1fr; }
   .article-pagination a:last-child { text-align: left; }
+  .patent-card { grid-template-columns: 1fr; gap: 0.75rem; }
+  .award-grid { grid-template-columns: 1fr; }
 }

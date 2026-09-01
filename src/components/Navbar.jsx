@@ -22,6 +22,8 @@ const Navbar = () => {
     { name: 'About', path: '/' },
     { name: 'Career', path: '/career' },
     { name: 'Projects', path: '/projects' },
+    { name: 'Patents', path: '/patents' },
+    { name: 'Awards', path: '/awards' },
     { name: 'Articles', path: '/articles' },
     { name: 'Photography', path: '/photography' },
   ];
@@ -38,10 +40,10 @@ const Navbar = () => {
           className={`text-xl font-bold text-[var(--text-color)] ${theme === 'cyber' ? 'glow-text' : ''}`}
           whileHover={{ scale: 1.05 }}
         >
-          Bruce W
+          <Link to="/" aria-label="Bruce W home">Bruce W</Link>
         </motion.div>
         
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden lg:flex space-x-6">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -59,7 +61,7 @@ const Navbar = () => {
         </nav>
 
         {/* 移动端菜单按钮 */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button 
             className="text-[var(--text-color)]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -79,7 +81,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            className="md:hidden bg-[var(--bg-secondary)] py-4 px-4 absolute top-full left-0 right-0 z-50"
+            className="lg:hidden bg-[var(--bg-secondary)] py-4 px-4 absolute top-full left-0 right-0 z-50"
             initial={{ opacity: 0, maxHeight: 0 }}
             animate={{ opacity: 1, maxHeight: 500 }}
             exit={{ opacity: 0, maxHeight: 0 }}

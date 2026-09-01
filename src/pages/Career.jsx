@@ -9,13 +9,15 @@ const Career = () => {
       company: 'vivo AI Lab',
       role: 'AI Engineer',
       dates: '2021 - Present',
-      description: 'Working on AI research and development.'
+      description: 'AI engineering across model training, inference workflows, agent evaluation, and developer productivity.',
+      focus: ['Agent Systems', 'Model Evaluation', 'AI Infrastructure'],
     },
     {
       company: 'IBM',
       role: 'Software Engineer',
       dates: '2015 - 2018',
-      description: 'Developed enterprise software solutions.'
+      description: 'Built and maintained enterprise software solutions in a production engineering environment.',
+      focus: ['Software Engineering', 'Enterprise Systems'],
     }
   ];
 
@@ -33,7 +35,7 @@ const Career = () => {
           >
             <h1 className="text-5xl md:text-6xl font-bold text-[var(--text-color)] mb-4">Career</h1>
             <p className="text-[var(--text-muted)] text-lg max-w-2xl mx-auto">
-              My professional journey
+              Selected experience building AI and enterprise software systems.
             </p>
           </motion.div>
           
@@ -53,6 +55,11 @@ const Career = () => {
                   <p className="text-lg text-[var(--text-muted)] mt-1">{career.role}</p>
                   <p className="text-sm text-[var(--text-muted)] mt-1">{career.dates}</p>
                   <p className="text-[var(--text-muted)] mt-3">{career.description}</p>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {career.focus.map((item) => (
+                      <span className="career-tag" key={item}>{item}</span>
+                    ))}
+                  </div>
                 </motion.div>
               ))}
             </div>
