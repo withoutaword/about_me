@@ -17,7 +17,7 @@ export default function Moments() {
 
       <h1 className="text-3xl font-bold mb-12">Moments</h1>
 
-      <div className="relative border-l border-gray-300 ml-3">
+      <div className="relative border-l border-[var(--border-color)] ml-3">
 
         {sorted.map((m) => {
 

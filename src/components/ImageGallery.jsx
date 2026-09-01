@@ -6,18 +6,20 @@ const ImageGallery = ({ images }) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-6xl mx-auto items-start">
         {images.map((image, index) => (
           <motion.div
-            key={index}
-            className="relative overflow-hidden rounded-lg cursor-pointer"
-            whileHover={{ scale: 1.03 }}
+            key={image.src}
+            className="relative overflow-hidden rounded-lg cursor-pointer bg-[var(--bg-secondary)]"
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.2 }}
             onClick={() => setSelectedImage(image)}
           >
             <img 
-              src={image} 
-              alt={`Photography ${index + 1}`} 
-              className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
+              src={image.src}
+              alt={image.alt || `Photography ${index + 1}`}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              className="block w-full h-auto transition-transform duration-500 hover:scale-[1.02]"
             />
           </motion.div>
         ))}
@@ -41,8 +43,8 @@ const ImageGallery = ({ images }) => {
               onClick={(e) => e.stopPropagation()}
             >
               <img 
-                src={selectedImage} 
-                alt="Selected" 
+                src={selectedImage.src}
+                alt={selectedImage.alt || 'Selected photograph'}
                 className="w-full h-auto max-h-[90vh] object-contain"
               />
               <button 
@@ -62,4 +64,3 @@ const ImageGallery = ({ images }) => {
 };
 
 export default ImageGallery;
-

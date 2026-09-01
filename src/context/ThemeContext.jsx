@@ -16,7 +16,7 @@ export const useTheme = () => {
 const getInitialTheme = () => {
   try {
     const saved = localStorage.getItem('theme');
-    return saved || 'default';
+    return ['default', 'cyber', 'ins'].includes(saved) ? saved : 'default';
   } catch {
     return 'default';
   }
@@ -26,7 +26,8 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(getInitialTheme);
 
   const cycleTheme = useCallback(() => {
-    setTheme(prev => prev === 'default' ? 'cyber' : 'default');
+    const themes = ['default', 'cyber', 'ins'];
+    setTheme(prev => themes[(themes.indexOf(prev) + 1) % themes.length]);
   }, []);
 
   useEffect(() => {

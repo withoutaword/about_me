@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Beliefs from './pages/Beliefs';
 import Career from './pages/Career';
 import Photography from './pages/Photography';
-import Projects from './pages/Projects';
-// import Moments from "./pages/Moments";
-import MomentDetail from "./pages/MomentDetail";
-import Moments from "./pages/MomentsPage";
 import MatrixRain from './components/MatrixRain';
 import Scanlines from './components/Scanlines';
 import { useTheme } from './context/ThemeContext';
+
+const Articles = lazy(() => import('./pages/Articles'));
+const ArticleDetail = lazy(() => import('./pages/ArticleDetail'));
+const Projects = lazy(() => import('./pages/Projects'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 
 function App() {
   const { theme } = useTheme();
@@ -23,12 +23,12 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/beliefs" element={<Beliefs />} />
           <Route path="/career" element={<Career />} />
+          <Route path="/articles" element={<Suspense fallback={null}><Articles /></Suspense>} />
+          <Route path="/articles/:slug" element={<Suspense fallback={null}><ArticleDetail /></Suspense>} />
           <Route path="/photography" element={<Photography />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/moments" element={<Moments />} />
-          <Route path="/moments/:id" element={<MomentDetail />} />
+          <Route path="/projects" element={<Suspense fallback={null}><Projects /></Suspense>} />
+          <Route path="/projects/:slug" element={<Suspense fallback={null}><ProjectDetail /></Suspense>} />
         </Routes>
       </Router>
     </>
@@ -36,4 +36,3 @@ function App() {
 }
 
 export default App;
-

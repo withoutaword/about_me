@@ -21,10 +21,9 @@ const Navbar = () => {
   const navItems = [
     { name: 'About', path: '/' },
     { name: 'Career', path: '/career' },
-    { name: 'Beliefs', path: '/beliefs' },
-    { name: 'Photography', path: '/photography' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Moments', path: '/moments' },
+    { name: 'Articles', path: '/articles' },
+    { name: 'Photography', path: '/photography' },
   ];
 
   return (
@@ -36,7 +35,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <motion.div 
-          className={`text-xl font-bold ${theme === 'cyber' ? 'glow-text' : 'text-white'}`}
+          className={`text-xl font-bold text-[var(--text-color)] ${theme === 'cyber' ? 'glow-text' : ''}`}
           whileHover={{ scale: 1.05 }}
         >
           Bruce W
@@ -62,7 +61,7 @@ const Navbar = () => {
         {/* 移动端菜单按钮 */}
         <div className="md:hidden">
           <button 
-            className="text-white" 
+            className="text-[var(--text-color)]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -106,4 +105,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

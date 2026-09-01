@@ -4,7 +4,8 @@ import { useTheme } from '../context/ThemeContext';
 
 const THEME_INFO = {
   default: { name: 'Default', icon: '🌙' },
-  cyber: { name: 'Cyber', icon: '⚡' }
+  cyber: { name: 'Cyber', icon: '⚡' },
+  ins: { name: 'INS', icon: '☀️' },
 };
 
 const ThemeSwitcher = () => {
