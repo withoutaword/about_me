@@ -1,75 +1,89 @@
-import React from 'react';
-import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const Career = () => {
-  const careers = [
-    {
-      company: 'vivo AI Lab',
-      role: 'AI Engineer',
-      dates: '2021 - Present',
-      description: 'AI engineering across model training, inference workflows, agent evaluation, and developer productivity.',
-      focus: ['Agent Systems', 'Model Evaluation', 'AI Infrastructure'],
-    },
-    {
-      company: 'IBM',
-      role: 'Software Engineer',
-      dates: '2015 - 2018',
-      description: 'Built and maintained enterprise software solutions in a production engineering environment.',
-      focus: ['Software Engineering', 'Enterprise Systems'],
-    }
-  ];
+const careers = [
+  {
+    company: 'vivo Mobile Technology',
+    role: 'Software Architect · AI Engineering',
+    dates: 'Aug 2021 – Present',
+    summary: 'Building production AI systems across agent evaluation, language models, recommendation, and engineering productivity.',
+    impact: [
+      'Architected an Agent Evaluation Platform supporting offline and training-time evaluation workflows.',
+      'Built 6+ reusable Agent Skills and reduced benchmark integration time from 2 days to approximately 10 minutes.',
+      'Developed recommendation and language-model capabilities with cross-functional product and data science teams.',
+    ],
+    focus: ['Agent Systems', 'AI Evaluation', 'LLM', 'Recommendation'],
+  },
+  {
+    company: 'Shenzhen Fenqile Technology',
+    role: 'Software Architect',
+    dates: 'Jan 2018 – Nov 2020',
+    summary: 'Designed commerce infrastructure for targeted promotions and data-driven marketing operations.',
+    impact: [
+      'Built and maintained an e-commerce coupon system supporting targeted promotions, redemption tracking, and real-time analytics.',
+      'Integrated the platform with existing commerce infrastructure, payment gateways, and data synchronization workflows.',
+    ],
+    focus: ['System Architecture', 'E-commerce', 'Data Systems'],
+  },
+  {
+    company: 'IBM',
+    role: 'Senior Software Developer',
+    dates: 'Apr 2015 – Dec 2017',
+    summary: 'Delivered secure enterprise software for financial-services environments.',
+    impact: [
+      'Contributed to a credit-card platform covering transaction processing, risk assessment, and customer operations.',
+      'Designed highly available integrations across APIs, databases, and third-party services.',
+      'Mentored junior engineers and promoted collaborative engineering practices.',
+    ],
+    focus: ['Enterprise Systems', 'FinTech', 'High Availability'],
+  },
+  {
+    company: 'Chow Tai Fook Group',
+    role: 'Software Engineer',
+    dates: 'Nov 2011 – Mar 2015',
+    summary: 'Developed and maintained customer-facing web experiences for a major retail brand.',
+    impact: [
+      'Contributed to a responsive, feature-rich website revamp using PHP, C#, MySQL, HTML/CSS, and JavaScript.',
+    ],
+    focus: ['Web Engineering', 'PHP', 'C#', 'MySQL'],
+  },
+];
 
-  return (
-    <div className="min-h-screen bg-[var(--bg-color)]">
-      <Navbar />
-      
-      <section className="pt-32 pb-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-5xl md:text-6xl font-bold text-[var(--text-color)] mb-4">Career</h1>
-            <p className="text-[var(--text-muted)] text-lg max-w-2xl mx-auto">
-              Selected experience building AI and enterprise software systems.
-            </p>
-          </motion.div>
-          
-          <div className="max-w-3xl mx-auto">
-            <div className="relative border-l border-[var(--border-color)] ml-4 md:ml-6">
-              {careers.map((career, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className="mb-12 pl-8 relative"
-                >
-                  <div className="absolute -left-2 top-2 w-4 h-4 bg-[var(--primary-color)] rounded-full border-2 border-[var(--bg-color)]"></div>
-                  <h3 className="text-2xl font-semibold text-[var(--text-color)]">{career.company}</h3>
-                  <p className="text-lg text-[var(--text-muted)] mt-1">{career.role}</p>
-                  <p className="text-sm text-[var(--text-muted)] mt-1">{career.dates}</p>
-                  <p className="text-[var(--text-muted)] mt-3">{career.description}</p>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {career.focus.map((item) => (
-                      <span className="career-tag" key={item}>{item}</span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+const Career = () => (
+  <div className="min-h-screen bg-[var(--bg-color)]">
+    <Navbar />
+    <main className="pt-32 pb-20">
+      <div className="container mx-auto px-6">
+        <header className="text-center mb-16">
+          <p className="articles-kicker">EXPERIENCE</p>
+          <h1 className="text-5xl md:text-6xl font-bold text-[var(--text-color)] mt-3">Career</h1>
+          <p className="text-[var(--text-muted)] text-lg max-w-2xl mx-auto mt-4">
+            More than a decade of building AI, financial, commerce, and web systems.
+          </p>
+        </header>
+
+        <div className="max-w-4xl mx-auto border-l border-[var(--border-color)] ml-2 md:ml-auto">
+          {careers.map((career) => (
+            <article className="career-entry" key={`${career.company}-${career.dates}`}>
+              <span className="career-dot" aria-hidden="true" />
+              <p className="career-date">{career.dates}</p>
+              <h2>{career.company}</h2>
+              <p className="career-role">{career.role}</p>
+              <p className="career-summary">{career.summary}</p>
+              <h3>Selected Impact</h3>
+              <ul>
+                {career.impact.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+              <div className="flex flex-wrap gap-2 mt-5">
+                {career.focus.map((item) => <span className="career-tag" key={item}>{item}</span>)}
+              </div>
+            </article>
+          ))}
         </div>
-      </section>
-      
-      <Footer />
-    </div>
-  );
-};
+      </div>
+    </main>
+    <Footer />
+  </div>
+);
 
 export default Career;

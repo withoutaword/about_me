@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { CV_URL } from '../config/site';
+import { CV_URL, GITHUB_URL } from '../config/site';
 
 const capabilities = [
   {
@@ -9,7 +9,7 @@ const capabilities = [
     description: 'Designing practical agent workflows that turn complex model operations into reliable engineering systems.',
   },
   {
-    title: 'Model Evaluation',
+    title: 'Agent Evaluation',
     description: 'Building extensible evaluation infrastructure for offline testing and training-time feedback loops.',
   },
   {
@@ -35,12 +35,17 @@ const Home = () => (
               Building reliable systems for models and agents.
             </h1>
             <p className="max-w-2xl mt-7 text-lg md:text-xl leading-relaxed text-[var(--text-muted)]">
-              I’m Bruce W, an AI engineer focused on agent systems, model evaluation, and training infrastructure—turning research ideas into tools that work in practice.
+              I’m Bruce W, an AI engineer focused on agent systems, evaluation, and AI infrastructure—turning research ideas into tools that work in practice.
             </p>
             <div className="flex flex-wrap gap-4 mt-9">
               <Link className="primary-cta" to="/projects">View Projects</Link>
+              <a className="secondary-cta" href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub ↗</a>
               <a className="secondary-cta" href={CV_URL} target="_blank" rel="noreferrer">View CV ↗</a>
-              <Link className="secondary-cta" to="/career">Explore Career</Link>
+            </div>
+            <div className="impact-strip" aria-label="Selected professional impact">
+              <div><strong>2 days → 10 min</strong><span>Benchmark Integration</span></div>
+              <div><strong>6+</strong><span>Agent Engineering Skills</span></div>
+              <div><strong>2×</strong><span>Quarterly Recognition</span></div>
             </div>
             <div className="flex flex-wrap gap-x-8 gap-y-3 mt-12 text-sm text-[var(--text-muted)]">
               <span><strong className="text-[var(--text-color)]">vivo AI Lab</strong> · 2021–Present</span>
@@ -79,7 +84,7 @@ const Home = () => (
             <Link className="primary-cta" to="/projects">Selected Projects</Link>
             <Link className="secondary-cta" to="/patents">View Patents</Link>
             <Link className="secondary-cta" to="/awards">View Awards</Link>
-            <Link className="secondary-cta" to="/articles">Read Articles</Link>
+            <Link className="secondary-cta" to="/articles">Explore Writing</Link>
           </div>
         </div>
       </section>

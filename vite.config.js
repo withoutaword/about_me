@@ -30,6 +30,11 @@ const dateFromFilename = (filename) => {
   return `${value[1]}-${value[2] || '01'}-01`
 }
 
+const normalizeDate = (value) => {
+  if (value instanceof Date) return value.toISOString().slice(0, 10)
+  return value || null
+}
+
 const articlesPlugin = () => ({
   name: 'local-markdown-articles',
   resolveId(id) {
@@ -51,7 +56,7 @@ const articlesPlugin = () => ({
       const { data, content } = matter(source)
       const heading = content.match(/^#{1,6}\s+(.+)$/m)?.[1]?.trim()
       const text = plainText(content)
-      const date = data.date || dateFromFilename(filename)
+      const date = normalizeDate(data.date || dateFromFilename(filename))
       const slug = filename.replace(/\.md$/, '')
 
       return {
@@ -105,7 +110,7 @@ const projectsPlugin = () => ({
       return {
         slug,
         title: data.title || filenameTitle || slug,
-        date: data.date || dateFromFilename(filename),
+        date: normalizeDate(data.date || dateFromFilename(filename)),
         summary: data.summary || `${text.slice(0, 150)}${text.length > 150 ? '…' : ''}`,
         techStack: Array.isArray(data.techStack)
           ? data.techStack
@@ -235,7 +240,7 @@ const awardsPlugin = () => ({
       return {
         slug,
         title: data.title || filenameTitle || slug,
-        date: data.date || dateFromFilename(filename),
+        date: normalizeDate(data.date || dateFromFilename(filename)),
         summary: data.summary || `${text.slice(0, 180)}${text.length > 180 ? '…' : ''}`,
         organization: data.organization || null,
         cover: data.cover || (imageReference ? `/award/image/${encodeURIComponent(imageReference)}` : null),

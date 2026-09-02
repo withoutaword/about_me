@@ -20,7 +20,7 @@ const Articles = () => {
       <main className="articles-page">
         <header className="articles-hero">
           <p className="articles-kicker">WRITING</p>
-          <h1>Articles</h1>
+          <h1>Writing</h1>
           <p>Notes on technology, life, and ideas worth recording.</p>
         </header>
 
