@@ -276,6 +276,52 @@ html {
   padding: clamp(1.75rem, 5vw, 4rem);
 }
 
+.featured-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.featured-project {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--bg-secondary) 82%, transparent);
+  padding: 1.75rem;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.featured-project:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-color);
+}
+
+.featured-project-number {
+  color: var(--primary-color);
+  font: 600 0.75rem/1.5 'Courier New', monospace;
+}
+
+.featured-project h3 {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.featured-project p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-top: 0.75rem;
+}
+
+.featured-project > div:last-child > a {
+  display: inline-block;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  margin-top: 1.25rem;
+}
+
 .career-tag {
   border: 1px solid var(--border-color);
   border-radius: 999px;
@@ -756,4 +802,5 @@ body[data-theme="ins"] .article-prose pre {
   .patent-card { grid-template-columns: 1fr; gap: 0.75rem; }
   .award-grid { grid-template-columns: 1fr; }
   .impact-strip { grid-template-columns: 1fr; gap: 1rem; }
+  .featured-projects { grid-template-columns: 1fr; }
 }

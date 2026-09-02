@@ -3,6 +3,7 @@ import patents from 'virtual:patents';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import PageMeta from '../components/PageMeta';
 
 const PatentDetail = () => {
   const { slug } = useParams();
@@ -22,6 +23,7 @@ const PatentDetail = () => {
 
   return (
     <div className="min-h-screen bg-[var(--bg-color)]">
+      <PageMeta title={patent.title} description={patent.summary} />
       <Navbar />
       <main className="article-detail">
         <Link className="article-back" to="/patents">← Back to Patents</Link>

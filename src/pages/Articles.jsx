@@ -3,6 +3,7 @@ import articles from 'virtual:articles';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ArticleCard from '../components/ArticleCard';
+import PageMeta from '../components/PageMeta';
 
 const Articles = () => {
   const [activeTag, setActiveTag] = useState('All');
@@ -16,6 +17,7 @@ const Articles = () => {
 
   return (
     <div className="min-h-screen bg-[var(--bg-color)]">
+      <PageMeta title="Writing" description="Writing by Bruce W on engineering, technology, life, and ideas worth recording." />
       <Navbar />
       <main className="articles-page">
         <header className="articles-hero">

@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import PageMeta from '../components/PageMeta';
 import { CV_URL, GITHUB_URL } from '../config/site';
+import projects from 'virtual:projects';
 
 const capabilities = [
   {
@@ -20,6 +22,7 @@ const capabilities = [
 
 const Home = () => (
   <div className="min-h-screen bg-[var(--bg-color)]">
+    <PageMeta />
     <Navbar />
     <main>
       <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-24">
@@ -66,6 +69,28 @@ const Home = () => (
               <span>0{index + 1}</span>
               <h3>{capability.title}</h3>
               <p>{capability.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto px-6 pb-24">
+        <div className="section-heading">
+          <p>FEATURED PROJECTS</p>
+          <h2>Selected systems I’ve built.</h2>
+        </div>
+        <div className="featured-projects mt-10">
+          {projects.slice(0, 2).map((project, index) => (
+            <article className="featured-project" key={project.slug}>
+              <div className="featured-project-number">0{index + 1}</div>
+              <div>
+                <h3>{project.title}</h3>
+                <p>{project.summary}</p>
+                <div className="article-tags">
+                  {project.techStack.slice(0, 3).map((tech) => <span key={tech}>{tech}</span>)}
+                </div>
+                <Link to={`/projects/${encodeURIComponent(project.slug)}`}>View Case Study →</Link>
+              </div>
             </article>
           ))}
         </div>
