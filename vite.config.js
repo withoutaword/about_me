@@ -15,6 +15,7 @@ const virtualPatentsId = 'virtual:patents'
 const resolvedVirtualPatentsId = `\0${virtualPatentsId}`
 const virtualAwardsId = 'virtual:awards'
 const resolvedVirtualAwardsId = `\0${virtualAwardsId}`
+const siteOrigin = 'https://me.iambruce.xyz'
 
 const plainText = (markdown) => markdown
   .replace(/^#{1,6}\s+/gm, '')
@@ -149,6 +150,9 @@ const photographyPlugin = () => ({
       this.addWatchFile(path.join(photographyDir, filename))
       return {
         src: `/photography/${encodeURIComponent(filename)}`,
+        thumbnail: fs.existsSync(path.join(photographyDir, 'thumbnails', filename))
+          ? `/photography/thumbnails/${encodeURIComponent(filename)}`
+          : null,
         alt: path.basename(filename, path.extname(filename)).replace(/[-_]+/g, ' '),
       }
     })
@@ -254,7 +258,44 @@ const awardsPlugin = () => ({
   },
 })
 
+const seoAssetsPlugin = () => ({
+  name: 'portfolio-seo-assets',
+  generateBundle() {
+    const projectRoot = path.dirname(fileURLToPath(import.meta.url))
+    const contentRoutes = [
+      ['public/writing', '/articles/'],
+      ['public/project', '/projects/'],
+      ['public/patent', '/patents/'],
+      ['public/award', '/awards/'],
+    ]
+    const routes = ['/', '/projects', '/career', '/articles', '/patents', '/awards', '/photography']
+
+    contentRoutes.forEach(([directory, routePrefix]) => {
+      const fullDirectory = path.resolve(projectRoot, directory)
+      if (!fs.existsSync(fullDirectory)) return
+      fs.readdirSync(fullDirectory)
+        .filter((file) => file.endsWith('.md'))
+        .forEach((file) => routes.push(`${routePrefix}${encodeURIComponent(file.replace(/\.md$/, ''))}`))
+    })
+
+    const sitemap = [
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      ...routes.map((route) => `  <url><loc>${siteOrigin}${route}</loc></url>`),
+      '</urlset>',
+      '',
+    ].join('\n')
+
+    this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: sitemap })
+    this.emitFile({
+      type: 'asset',
+      fileName: 'robots.txt',
+      source: `User-agent: *\nAllow: /\nSitemap: ${siteOrigin}/sitemap.xml\n`,
+    })
+  },
+})
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), articlesPlugin(), projectsPlugin(), photographyPlugin(), patentsPlugin(), awardsPlugin()],
+  plugins: [react(), articlesPlugin(), projectsPlugin(), photographyPlugin(), patentsPlugin(), awardsPlugin(), seoAssetsPlugin()],
 })
