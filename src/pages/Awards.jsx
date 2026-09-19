@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import awards from 'virtual:awards';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import PageMeta from '../components/PageMeta';
 
 const formatDate = (date) => date
   ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(new Date(date))
@@ -9,6 +10,7 @@ const formatDate = (date) => date
 
 const Awards = () => (
   <div className="min-h-screen bg-[var(--bg-color)]">
+    <PageMeta title="Awards" description="Professional recognition for Bruce W's engineering ownership, technical execution, and impact." />
     <Navbar />
     <main className="articles-page">
       <header className="articles-hero">

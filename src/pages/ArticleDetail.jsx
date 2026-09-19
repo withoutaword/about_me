@@ -3,6 +3,8 @@ import articles from 'virtual:articles';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import PageMeta from '../components/PageMeta';
+import ArticleShare from '../components/ArticleShare';
 
 const formatDate = (date) => date
   ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(date))
@@ -30,6 +32,7 @@ const ArticleDetail = () => {
 
   return (
     <div className="min-h-screen bg-[var(--bg-color)]">
+      <PageMeta title={article.title} description={article.summary} />
       <Navbar />
       <main className="article-detail">
         <Link className="article-back" to="/articles">← Back to Articles</Link>
@@ -45,6 +48,7 @@ const ArticleDetail = () => {
               {article.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
           )}
+          <ArticleShare article={article} />
           {article.cover && <img className="article-cover" src={article.cover} alt="" />}
         </header>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 
 const ImageGallery = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -8,7 +8,7 @@ const ImageGallery = ({ images }) => {
     <>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-6xl mx-auto items-start">
         {images.map((image, index) => (
-          <motion.div
+          <Motion.div
             key={image.src}
             className="relative overflow-hidden rounded-lg cursor-pointer bg-[var(--bg-secondary)]"
             whileHover={{ y: -4 }}
@@ -16,26 +16,26 @@ const ImageGallery = ({ images }) => {
             onClick={() => setSelectedImage(image)}
           >
             <img 
-              src={image.src}
+              src={image.thumbnail || image.src}
               alt={image.alt || `Photography ${index + 1}`}
               loading={index === 0 ? 'eager' : 'lazy'}
               className="block w-full h-auto transition-transform duration-500 hover:scale-[1.02]"
             />
-          </motion.div>
+          </Motion.div>
         ))}
       </div>
 
       {/* 图片预览模态框 */}
       <AnimatePresence>
         {selectedImage && (
-          <motion.div 
+          <Motion.div
             className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
           >
-            <motion.div
+            <Motion.div
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
@@ -55,8 +55,8 @@ const ImageGallery = ({ images }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-            </motion.div>
-          </motion.div>
+            </Motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </>

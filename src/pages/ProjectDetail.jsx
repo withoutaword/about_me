@@ -3,6 +3,7 @@ import projects from 'virtual:projects';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import PageMeta from '../components/PageMeta';
 
 const formatDate = (date) => date
   ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(new Date(date))
@@ -26,6 +27,7 @@ const ProjectDetail = () => {
 
   return (
     <div className="min-h-screen bg-[var(--bg-color)]">
+      <PageMeta title={project.title} description={project.summary} />
       <Navbar />
       <main className="article-detail">
         <Link className="article-back" to="/projects">← Back to Projects</Link>
@@ -39,6 +41,23 @@ const ProjectDetail = () => {
               {project.techStack.map((tech) => <span key={tech}>{tech}</span>)}
             </div>
           )}
+          {(project.role || project.scope || project.outcome) && (
+            <dl className="project-summary-grid">
+              {project.role && <div><dt>Role</dt><dd>{project.role}</dd></div>}
+              {project.scope && <div><dt>Scope</dt><dd>{project.scope}</dd></div>}
+              {project.outcome && <div><dt>Outcome</dt><dd>{project.outcome}</dd></div>}
+            </dl>
+          )}
+          {project.metrics.length > 0 && (
+            <div className="project-metrics" aria-label="Project outcomes">
+              {project.metrics.map((metric) => (
+                <div key={metric.label}>
+                  <strong>{metric.value}</strong>
+                  <span>{metric.label}</span>
+                </div>
+              ))}
+            </div>
+          )}
           {(project.github || project.demo) && (
             <div className="project-links">
               {project.github && <a href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>}
@@ -48,6 +67,15 @@ const ProjectDetail = () => {
           {project.cover && <img className="article-cover" src={project.cover} alt="" />}
         </header>
         <MarkdownRenderer>{project.content}</MarkdownRenderer>
+        {project.relatedArticle && (
+          <aside className="project-related">
+            <p>Continue reading</p>
+            <h2>Go deeper into the architecture evolution.</h2>
+            <Link to={`/articles/${encodeURIComponent(project.relatedArticle)}`}>
+              Read the full architecture story →
+            </Link>
+          </aside>
+        )}
       </main>
       <Footer />
     </div>

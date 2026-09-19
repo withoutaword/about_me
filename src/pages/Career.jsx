@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import PageMeta from '../components/PageMeta';
 
 const careers = [
   {
@@ -51,6 +52,7 @@ const careers = [
 
 const Career = () => (
   <div className="min-h-screen bg-[var(--bg-color)]">
+    <PageMeta title="Career" description="Bruce W's engineering career across AI systems, fintech, commerce, and web platforms." />
     <Navbar />
     <main className="pt-32 pb-20">
       <div className="container mx-auto px-6">

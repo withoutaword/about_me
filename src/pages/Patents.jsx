@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom';
 import patents from 'virtual:patents';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import PageMeta from '../components/PageMeta';
 
 const Patents = () => (
   <div className="min-h-screen bg-[var(--bg-color)]">
+    <PageMeta title="Patents" description="Selected patents by Bruce W in recommendation systems, data storage, and digital experiences." />
     <Navbar />
     <main className="articles-page">
       <header className="articles-hero">

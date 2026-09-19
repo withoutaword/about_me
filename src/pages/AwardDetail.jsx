@@ -3,6 +3,7 @@ import awards from 'virtual:awards';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import PageMeta from '../components/PageMeta';
 
 const formatDate = (date) => date
   ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(new Date(date))
@@ -26,6 +27,7 @@ const AwardDetail = () => {
 
   return (
     <div className="min-h-screen bg-[var(--bg-color)]">
+      <PageMeta title={award.title} description={award.summary} />
       <Navbar />
       <main className="article-detail">
         <Link className="article-back" to="/awards">← Back to Awards</Link>
