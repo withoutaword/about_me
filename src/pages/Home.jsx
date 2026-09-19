@@ -89,7 +89,9 @@ const Home = () => (
                 <div className="article-tags">
                   {project.techStack.slice(0, 3).map((tech) => <span key={tech}>{tech}</span>)}
                 </div>
-                <Link to={`/projects/${encodeURIComponent(project.slug)}`}>View Case Study →</Link>
+                <Link to={`/projects/${encodeURIComponent(project.slug)}`}>
+                  {index === 0 ? 'View Flagship Case Study →' : 'View Case Study →'}
+                </Link>
               </div>
             </article>
           ))}

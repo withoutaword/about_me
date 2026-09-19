@@ -113,6 +113,11 @@ const projectsPlugin = () => ({
         title: data.title || filenameTitle || slug,
         date: normalizeDate(data.date || dateFromFilename(filename)),
         summary: data.summary || `${text.slice(0, 150)}${text.length > 150 ? '…' : ''}`,
+        role: data.role || null,
+        scope: data.scope || null,
+        outcome: data.outcome || null,
+        metrics: Array.isArray(data.metrics) ? data.metrics : [],
+        relatedArticle: data.relatedArticle || null,
         techStack: Array.isArray(data.techStack)
           ? data.techStack
           : (Array.isArray(data.tags) ? data.tags : []),

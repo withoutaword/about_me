@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import PageMeta from '../components/PageMeta';
+import ArticleShare from '../components/ArticleShare';
 
 const formatDate = (date) => date
   ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(date))
@@ -47,6 +48,7 @@ const ArticleDetail = () => {
               {article.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
           )}
+          <ArticleShare article={article} />
           {article.cover && <img className="article-cover" src={article.cover} alt="" />}
         </header>
 
