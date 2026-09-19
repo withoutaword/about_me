@@ -5,6 +5,7 @@ import MarkdownRenderer from './MarkdownRenderer';
 import { SITE_URL } from '../config/site';
 
 const MAX_PAGE_HEIGHT = 10000;
+const MIN_PAGE_BALANCE = 0.55;
 
 const formatDate = (date) => date
   ? new Intl.DateTimeFormat('en-US', {
@@ -49,6 +50,60 @@ const waitForImages = async (node) => {
       image.addEventListener('error', resolve, { once: true });
     });
   }));
+};
+
+const getSafePageBreaks = (node, canvas) => {
+  const pageCount = Math.ceil(canvas.height / MAX_PAGE_HEIGHT);
+  if (pageCount <= 1) return [0, canvas.height];
+
+  const nodeRect = node.getBoundingClientRect();
+  const scale = canvas.height / nodeRect.height;
+  const contentBlocks = [
+    ...node.querySelectorAll(
+      '.article-prose > p, .article-prose > ul, .article-prose > ol, '
+      + '.article-prose > blockquote, .article-prose > pre, '
+      + '.article-prose > table, .article-prose > hr, .article-share-footer',
+    ),
+  ];
+  const candidates = contentBlocks
+    .map((block) => {
+      const blockRect = block.getBoundingClientRect();
+      const boundary = block.classList.contains('article-share-footer')
+        ? blockRect.top
+        : blockRect.bottom;
+      return Math.round((boundary - nodeRect.top) * scale);
+    })
+    .filter((position) => position > 0 && position < canvas.height)
+    .sort((a, b) => a - b);
+  const breaks = [0];
+
+  for (let page = 1; page < pageCount; page += 1) {
+    const previousBreak = breaks[breaks.length - 1];
+    const remainingPages = pageCount - page;
+    const remainingHeight = canvas.height - previousBreak;
+    const idealPageHeight = remainingHeight / (remainingPages + 1);
+    const target = previousBreak + idealPageHeight;
+    const minimum = Math.max(
+      previousBreak + (idealPageHeight * MIN_PAGE_BALANCE),
+      canvas.height - (remainingPages * MAX_PAGE_HEIGHT),
+    );
+    const maximum = Math.min(
+      previousBreak + MAX_PAGE_HEIGHT,
+      canvas.height - (remainingPages * idealPageHeight * MIN_PAGE_BALANCE),
+    );
+    const validCandidates = candidates.filter(
+      (position) => position >= minimum && position <= maximum,
+    );
+    const nextBreak = validCandidates.reduce(
+      (closest, position) => (
+        Math.abs(position - target) < Math.abs(closest - target) ? position : closest
+      ),
+      validCandidates[0] ?? Math.min(previousBreak + MAX_PAGE_HEIGHT, Math.round(target)),
+    );
+    breaks.push(nextBreak);
+  }
+
+  return [...breaks, canvas.height];
 };
 
 const writeClipboard = async (value) => {
@@ -134,12 +189,13 @@ const ArticleShare = ({ article }) => {
           transform: 'none',
         },
       });
-      const pageCount = Math.ceil(canvas.height / MAX_PAGE_HEIGHT);
+      const pageBreaks = getSafePageBreaks(shareSourceRef.current, canvas);
+      const pageCount = pageBreaks.length - 1;
       const filename = safeFilename(article.title) || 'article';
 
       for (let page = 0; page < pageCount; page += 1) {
-        const sourceY = page * MAX_PAGE_HEIGHT;
-        const pageHeight = Math.min(MAX_PAGE_HEIGHT, canvas.height - sourceY);
+        const sourceY = pageBreaks[page];
+        const pageHeight = pageBreaks[page + 1] - sourceY;
         const pageCanvas = document.createElement('canvas');
         pageCanvas.width = canvas.width;
         pageCanvas.height = pageHeight;
@@ -227,9 +283,19 @@ const ArticleShare = ({ article }) => {
         <footer className="article-share-footer">
           <div>
             <strong>Bruce W</strong>
-            <span>{articleUrl}</span>
+            <div className="article-share-identity-tags">
+              <span>Agent Systems</span>
+              <span>AI Architecture</span>
+              <span>Platform Engineering</span>
+            </div>
+            <span className="article-share-site">me.iambruce.xyz</span>
           </div>
-          {qrCode && <img src={qrCode} alt="" />}
+          {qrCode && (
+            <div className="article-share-qr">
+              <img src={qrCode} alt="" />
+              <span>Scan to read</span>
+            </div>
+          )}
         </footer>
       </article>
     </>
