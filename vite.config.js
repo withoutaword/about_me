@@ -119,6 +119,7 @@ const projectsPlugin = () => ({
         positioning: data.positioning || null,
         metrics: Array.isArray(data.metrics) ? data.metrics : [],
         relatedArticle: data.relatedArticle || null,
+        publication: data.publication || null,
         techStack: Array.isArray(data.techStack)
           ? data.techStack
           : (Array.isArray(data.tags) ? data.tags : []),

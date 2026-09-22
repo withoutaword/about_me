@@ -47,8 +47,8 @@ const Home = () => (
             </div>
             <div className="impact-strip" aria-label="Selected professional impact">
               <div><strong>2 days → 10 min</strong><span>Benchmark Integration</span></div>
-              <div><strong>6+</strong><span>Agent Engineering Skills</span></div>
-              <div><strong>2×</strong><span>Quarterly Recognition</span></div>
+              <div><strong>5.2×</strong><span>Inference QPS</span></div>
+              <div><strong>~75%</strong><span>Infrastructure Cost Reduction</span></div>
             </div>
             <div className="flex flex-wrap gap-x-8 gap-y-3 mt-12 text-sm text-[var(--text-muted)]">
               <span><strong className="text-[var(--text-color)]">vivo AI Lab</strong> · 2021–Present</span>
@@ -80,7 +80,7 @@ const Home = () => (
           <h2>Selected systems I’ve built.</h2>
         </div>
         <div className="featured-projects mt-10">
-          {projects.slice(0, 2).map((project, index) => (
+          {projects.slice(0, 3).map((project, index) => (
             <article className="featured-project" key={project.slug}>
               <div className="featured-project-number">0{index + 1}</div>
               <div>

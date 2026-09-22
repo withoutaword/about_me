@@ -58,10 +58,15 @@ const ProjectDetail = () => {
               ))}
             </div>
           )}
-          {(project.github || project.demo) && (
+          {(project.github || project.demo || project.publication) && (
             <div className="project-links">
               {project.github && <a href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>}
               {project.demo && <a href={project.demo} target="_blank" rel="noreferrer">Live Demo ↗</a>}
+              {project.publication && (
+                <a href={project.publication} target="_blank" rel="noreferrer">
+                  Original Publication ↗
+                </a>
+              )}
             </div>
           )}
           {project.cover && <img className="article-cover" src={project.cover} alt="" />}

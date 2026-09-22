@@ -1,4 +1,4 @@
-export const CV_URL = '/info/CV.pdf';
+export const CV_URL = '/info/CV-Bruce-W-Public.pdf';
 export const GITHUB_URL = 'https://github.com/withoutaword';
 export const EMAIL_URL = 'mailto:withoutaword10@gmail.com';
 export const SITE_URL = 'https://me.iambruce.xyz';
