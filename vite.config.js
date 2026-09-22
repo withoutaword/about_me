@@ -67,12 +67,17 @@ const articlesPlugin = () => ({
         summary: data.summary || `${text.slice(0, 150)}${text.length > 150 ? '…' : ''}`,
         tags: Array.isArray(data.tags) ? data.tags : [],
         cover: data.cover || null,
+        featured: data.featured === true,
+        listed: data.listed !== false,
         published: data.published !== false,
         readingTime: Math.max(1, Math.ceil(text.replace(/\s/g, '').length / 500)),
         content: heading ? content.replace(/^\s*#{1,6}\s+.+\r?\n/, '') : content,
       }
     }).filter((article) => article.published)
-      .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+      .sort((a, b) => {
+        if (a.featured !== b.featured) return a.featured ? -1 : 1
+        return (b.date || '').localeCompare(a.date || '')
+      })
 
     return `export default ${JSON.stringify(articles)}`
   },

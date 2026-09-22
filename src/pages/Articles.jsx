@@ -7,13 +7,14 @@ import PageMeta from '../components/PageMeta';
 
 const Articles = () => {
   const [activeTag, setActiveTag] = useState('All');
+  const listedArticles = useMemo(() => articles.filter((article) => article.listed), []);
   const tags = useMemo(
-    () => ['All', ...new Set(articles.flatMap((article) => article.tags))],
-    [],
+    () => ['All', ...new Set(listedArticles.flatMap((article) => article.tags))],
+    [listedArticles],
   );
   const visibleArticles = activeTag === 'All'
-    ? articles
-    : articles.filter((article) => article.tags.includes(activeTag));
+    ? listedArticles
+    : listedArticles.filter((article) => article.tags.includes(activeTag));
 
   return (
     <div className="min-h-screen bg-[var(--bg-color)]">

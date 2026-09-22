@@ -11,6 +11,8 @@ const ArticleCard = ({ article }) => (
     )}
     <div className="article-card-body">
       <div className="article-meta">
+        {article.featured && <span className="article-featured">Featured</span>}
+        {article.featured && <span>·</span>}
         <time dateTime={article.date || undefined}>{formatDate(article.date)}</time>
         <span>·</span>
         <span>{article.readingTime} min read</span>

@@ -10,9 +10,20 @@ const formatDate = (date) => date
   ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(date))
   : 'Date unavailable';
 
+const decodeRouteSlug = (slug) => {
+  if (!slug) return slug;
+
+  try {
+    return decodeURIComponent(slug);
+  } catch {
+    return slug;
+  }
+};
+
 const ArticleDetail = () => {
   const { slug } = useParams();
-  const index = articles.findIndex((article) => article.slug === slug);
+  const decodedSlug = decodeRouteSlug(slug);
+  const index = articles.findIndex((article) => article.slug === decodedSlug);
   const article = articles[index];
 
   if (!article) {
@@ -27,8 +38,12 @@ const ArticleDetail = () => {
     );
   }
 
-  const newerArticle = index > 0 ? articles[index - 1] : null;
-  const olderArticle = index < articles.length - 1 ? articles[index + 1] : null;
+  const listedArticles = articles.filter((item) => item.listed);
+  const listedIndex = listedArticles.findIndex((item) => item.slug === decodedSlug);
+  const newerArticle = listedIndex > 0 ? listedArticles[listedIndex - 1] : null;
+  const olderArticle = listedIndex >= 0 && listedIndex < listedArticles.length - 1
+    ? listedArticles[listedIndex + 1]
+    : null;
 
   return (
     <div className="min-h-screen bg-[var(--bg-color)]">
