@@ -494,9 +494,14 @@ html {
 
 /* Articles */
 .articles-page,
-.article-detail,
 .article-not-found {
   width: min(100% - 2rem, 880px);
+  margin-inline: auto;
+  padding-top: 8.5rem;
+}
+
+.article-detail {
+  width: min(100% - 3rem, 1240px);
   margin-inline: auto;
   padding-top: 8.5rem;
 }
@@ -774,12 +779,19 @@ html {
 
 .article-reading-layout {
   display: grid;
-  grid-template-columns: 13rem minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 17rem;
   align-items: start;
-  gap: 3rem;
+  gap: clamp(3rem, 5vw, 5rem);
+}
+
+.article-reading-layout > .article-prose {
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .article-toc {
+  grid-column: 2;
+  grid-row: 1;
   position: sticky;
   top: 7rem;
   max-height: calc(100vh - 9rem);
@@ -1279,7 +1291,13 @@ body[data-theme="ins"] .article-prose pre {
 @media (max-width: 1024px) {
   .hero-layout { grid-template-columns: 1fr; padding: 4rem 0; }
   .hero-portrait { width: min(100%, 22rem); margin: 0; }
+  .article-detail { width: min(100% - 2rem, 880px); }
   .article-reading-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .article-reading-layout > .article-prose,
+  .article-toc {
+    grid-column: 1;
+    grid-row: auto;
+  }
   .article-toc {
     position: static;
     max-height: none;
