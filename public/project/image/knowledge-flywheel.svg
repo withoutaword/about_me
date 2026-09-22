@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Human-guided engineering knowledge flywheel</title><desc id="desc">Execution issues are captured, distilled, confirmed and reused in future tasks.</desc>
+  <rect width="1200" height="675" rx="28" fill="#071426"/>
+  <text x="60" y="78" fill="#f8fafc" font-family="Inter,Arial" font-size="34" font-weight="700">BUILD THE KNOWLEDGE FLYWHEEL</text>
+  <g font-family="Inter,Arial" text-anchor="middle">
+    <circle cx="600" cy="355" r="225" fill="none" stroke="#164e63" stroke-width="22"/>
+    <g fill="#0d223c" stroke="#22d3ee" stroke-width="2"><rect x="505" y="105" width="190" height="90" rx="18"/><rect x="810" y="300" width="240" height="110" rx="18"/><rect x="480" y="510" width="240" height="110" rx="18"/><rect x="150" y="300" width="240" height="110" rx="18"/></g>
+    <g fill="#f8fafc" font-size="19" font-weight="700"><text x="600" y="150">EXECUTE SKILL</text><text x="930" y="345">CAPTURE ISSUES</text><text x="600" y="552">DISTILL + CONFIRM</text><text x="600" y="580">knowledge.md</text><text x="270" y="345">NEXT EXECUTION</text></g>
+    <g fill="#22d3ee" font-size="42"><text x="795" y="225">↻</text><text x="790" y="500">↻</text><text x="400" y="500">↻</text><text x="390" y="225">↻</text></g>
+    <rect x="470" y="285" width="260" height="135" rx="24" fill="#15163b" stroke="#8b5cf6" stroke-width="3"/>
+    <text x="600" y="335" fill="#c4b5fd" font-size="18" font-weight="700">HUMAN-GUIDED</text><text x="600" y="370" fill="#f8fafc" font-size="27" font-weight="800">LEARNING LOOP</text><text x="600" y="400" fill="#94a3b8" font-size="14">15 cases · 6 themes · 20+ principles</text>
+  </g>
+</svg>

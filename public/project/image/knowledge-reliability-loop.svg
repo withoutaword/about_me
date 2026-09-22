@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Agent reliability and validation loop</title><desc id="desc">Generation passes through validation, bounded repair, golden comparison and human approval.</desc>
+  <rect width="1200" height="675" rx="28" fill="#071426"/>
+  <text x="60" y="78" fill="#f8fafc" font-family="Inter,Arial" font-size="34" font-weight="700">ENGINEER FOR RELIABILITY</text>
+  <g font-family="Inter,Arial" text-anchor="middle">
+    <g fill="#0d223c" stroke="#22d3ee" stroke-width="2"><rect x="55" y="265" width="180" height="115" rx="18"/><rect x="290" y="265" width="180" height="115" rx="18"/><rect x="745" y="265" width="180" height="115" rx="18"/><rect x="975" y="265" width="180" height="115" rx="18"/></g>
+    <rect x="520" y="245" width="175" height="155" rx="22" fill="#15163b" stroke="#8b5cf6" stroke-width="3"/>
+    <g fill="#f8fafc" font-size="20" font-weight="700"><text x="145" y="330">GENERATE</text><text x="380" y="330">VALIDATE</text><text x="607" y="305">PASS?</text><text x="835" y="320">GOLDEN</text><text x="835" y="348">BENCHMARK</text><text x="1065" y="320">HUMAN</text><text x="1065" y="348">GATE</text></g>
+    <g fill="#22d3ee" font-size="34"><text x="260" y="334">→</text><text x="495" y="334">→</text><text x="720" y="334">→</text><text x="950" y="334">→</text></g>
+    <path d="M607 400v105H380V390" fill="none" stroke="#f472b6" stroke-width="3" stroke-dasharray="9 7"/>
+    <text x="500" y="485" fill="#f9a8d4" font-size="16">FAIL → FIX → RETRY ≤ 3</text>
+    <text x="600" y="575" fill="#94a3b8" font-size="17">Domain-specific evidence · Bounded recovery · Human accountability</text>
+  </g>
+</svg>

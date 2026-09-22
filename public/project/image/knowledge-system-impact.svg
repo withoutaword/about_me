@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Evidence and impact</title><desc id="desc">Metrics for reusable skills, benchmark integration, cases and engineering principles.</desc>
+  <rect width="1200" height="675" rx="28" fill="#071426"/>
+  <text x="60" y="78" fill="#f8fafc" font-family="Inter,Arial" font-size="34" font-weight="700">SCALE EXPERTISE ACROSS THE TEAM</text>
+  <g font-family="Inter,Arial" text-anchor="middle">
+    <g fill="#0d223c" stroke="#2563eb" stroke-width="2"><rect x="60" y="165" width="250" height="300" rx="24"/><rect x="335" y="165" width="250" height="300" rx="24"/><rect x="610" y="165" width="250" height="300" rx="24"/><rect x="885" y="165" width="250" height="300" rx="24"/></g>
+    <g fill="#67e8f9" font-size="58" font-weight="800"><text x="185" y="285">7</text><text x="460" y="285">96×</text><text x="735" y="285">15</text><text x="1010" y="285">20+</text></g>
+    <g fill="#f8fafc" font-size="18" font-weight="700"><text x="185" y="340">REUSABLE SKILLS</text><text x="460" y="340">FASTER DELIVERY</text><text x="735" y="340">PRACTICAL CASES</text><text x="1010" y="340">PRINCIPLES</text></g>
+    <g fill="#94a3b8" font-size="15"><text x="185" y="385">3 engineering</text><text x="185" y="408">workflows</text><text x="460" y="385">2 days → 10 min</text><text x="460" y="408">benchmark integration</text><text x="735" y="385">captured from</text><text x="735" y="408">real execution</text><text x="1010" y="385">across 6</text><text x="1010" y="408">knowledge themes</text></g>
+    <rect x="275" y="515" width="650" height="90" rx="20" fill="#15163b" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="600" y="555" fill="#c4b5fd" font-size="20" font-weight="700">ONE ENGINEER'S JUDGMENT → TEAM CAPABILITY</text><text x="600" y="583" fill="#94a3b8" font-size="15">Reusable · Versioned · Reviewable · Continuously improved</text>
+  </g>
+</svg>

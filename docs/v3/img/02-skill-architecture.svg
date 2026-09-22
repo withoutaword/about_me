@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" width="920" height="420">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4A5568"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2B6CB0"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#276749"/>
+    </marker>
+    <filter id="sh" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="920" height="420" fill="#FAFBFC"/>
+  <text x="460" y="30" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="18" font-weight="bold" fill="#1A202C" text-anchor="middle">4 个 Skill 的协作关系</text>
+
+  <!-- Pipeline 1: 评测链路 -->
+  <rect x="30" y="50" width="860" height="150" rx="10" fill="#EBF8FF" stroke="#2B6CB0" stroke-width="1.5" stroke-dasharray="4,2" filter="url(#sh)"/>
+  <text x="60" y="72" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#2B6CB0">评测链路（两个独立 Skill，可单独触发）</text>
+
+  <!-- Input 1 -->
+  <rect x="60" y="90" width="130" height="45" rx="6" fill="#fff" stroke="#718096" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="125" y="110" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">GitHub URL /</text>
+  <text x="125" y="125" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">本地评测代码</text>
+
+  <line x1="190" y1="112" x2="220" y2="112" stroke="#2B6CB0" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+
+  <!-- Skill 1 -->
+  <rect x="225" y="85" width="200" height="55" rx="8" fill="#2B6CB0" filter="url(#sh)"/>
+  <text x="325" y="108" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">auto-eval-adapter</text>
+  <text x="325" y="126" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#BEE3F8" text-anchor="middle">评测代码适配</text>
+
+  <!-- Output 1 -->
+  <line x1="425" y1="112" x2="455" y2="112" stroke="#2B6CB0" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <rect x="460" y="90" width="130" height="45" rx="6" fill="#fff" stroke="#2B6CB0" stroke-width="1.2"/>
+  <text x="525" y="110" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#2D3748" text-anchor="middle">bench/task/*.py</text>
+  <text x="525" y="125" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#2D3748" text-anchor="middle">+ task_info.yaml</text>
+
+  <!-- Input 2 -->
+  <rect x="60" y="150" width="130" height="40" rx="6" fill="#fff" stroke="#718096" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="125" y="167" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">原始数据文件</text>
+  <text x="125" y="182" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">.json/.csv/.xlsx</text>
+
+  <line x1="190" y1="170" x2="220" y2="170" stroke="#2B6CB0" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+
+  <!-- Skill 2 -->
+  <rect x="225" y="147" width="200" height="55" rx="8" fill="#2B6CB0" filter="url(#sh)"/>
+  <text x="325" y="170" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">auto-dataset-adapter</text>
+  <text x="325" y="188" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#BEE3F8" text-anchor="middle">数据格式转换</text>
+
+  <!-- Output 2 -->
+  <line x1="425" y1="174" x2="455" y2="174" stroke="#2B6CB0" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <rect x="460" y="152" width="130" height="40" rx="6" fill="#fff" stroke="#2B6CB0" stroke-width="1.2"/>
+  <text x="525" y="170" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#2D3748" text-anchor="middle">标准 JSONL</text>
+  <text x="525" y="185" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#2D3748" text-anchor="middle">+ 转换脚本</text>
+
+  <!-- Final output -->
+  <line x1="590" y1="135" x2="640" y2="135" stroke="#4A5568" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="645" y="108" width="120" height="55" rx="8" fill="#F7FAFC" stroke="#4A5568" stroke-width="1.5"/>
+  <text x="705" y="132" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#2D3748" text-anchor="middle">运行评测</text>
+  <text x="705" y="150" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">python run.py</text>
+
+  <!-- Pipeline 2: 模型结构链路 -->
+  <rect x="30" y="220" width="860" height="180" rx="10" fill="#F0FFF4" stroke="#276749" stroke-width="1.5" stroke-dasharray="4,2" filter="url(#sh)"/>
+  <text x="60" y="242" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#276749">模型结构链路（两个有序 Skill，前后串联）</text>
+
+  <!-- Input -->
+  <rect x="60" y="262" width="130" height="55" rx="6" fill="#fff" stroke="#718096" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="125" y="282" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">训练脚本 +</text>
+  <text x="125" y="297" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">参考论文/代码</text>
+  <text x="125" y="312" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#A0AEC0" text-anchor="middle">+ 适配逻辑</text>
+
+  <line x1="190" y1="290" x2="220" y2="290" stroke="#276749" stroke-width="1.5" marker-end="url(#arr-green)"/>
+
+  <!-- Skill 3 -->
+  <rect x="225" y="265" width="200" height="55" rx="8" fill="#276749" filter="url(#sh)"/>
+  <text x="325" y="288" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">adapt-model</text>
+  <text x="325" y="306" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#9AE6B4" text-anchor="middle">训练代码结构适配</text>
+
+  <!-- Mid output -->
+  <line x1="425" y1="290" x2="455" y2="290" stroke="#276749" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <rect x="460" y="268" width="130" height="50" rx="6" fill="#fff" stroke="#276749" stroke-width="1.2"/>
+  <text x="525" y="287" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#2D3748" text-anchor="middle">修改后源码 +</text>
+  <text x="525" y="303" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#2D3748" text-anchor="middle">训练脚本</text>
+  <text x="525" y="315" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#718096" text-anchor="middle">↓ 训练产出 ckpt</text>
+
+  <!-- Arrow to Skill 4 -->
+  <path d="M 525 318 L 525 340 L 240 340 L 240 360" fill="none" stroke="#276749" stroke-width="1.5" marker-end="url(#arr-green)"/>
+
+  <!-- Skill 4 -->
+  <rect x="145" y="362" width="260" height="55" rx="8" fill="#276749" filter="url(#sh)"/>
+  <text x="275" y="385" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">blue-model-and-convert-adapt</text>
+  <text x="275" y="403" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#9AE6B4" text-anchor="middle">HF 模型适配 + 格式转换</text>
+
+  <!-- Final output -->
+  <line x1="405" y1="390" x2="445" y2="390" stroke="#276749" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <rect x="450" y="367" width="130" height="50" rx="6" fill="#fff" stroke="#276749" stroke-width="1.2"/>
+  <text x="515" y="387" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#2D3748" text-anchor="middle">blue-model 代码</text>
+  <text x="515" y="403" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#2D3748" text-anchor="middle">+ HF 格式模型</text>
+
+  <line x1="580" y1="390" x2="620" y2="390" stroke="#4A5568" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="625" y="367" width="120" height="50" rx="8" fill="#F7FAFC" stroke="#4A5568" stroke-width="1.5"/>
+  <text x="685" y="388" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#2D3748" text-anchor="middle">加载验证</text>
+  <text x="685" y="405" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">推理 + 评测</text>
+
+  <!-- Serial label -->
+  <text x="80" y="385" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#276749" text-anchor="middle">串联</text>
+  <text x="80" y="400" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#276749" text-anchor="middle">↓</text>
+</svg>

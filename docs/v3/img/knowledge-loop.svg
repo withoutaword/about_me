@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A5568"/>
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2B6CB0"/>
+    </marker>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" fill="#FAFBFC"/>
+
+  <!-- Title -->
+  <text x="450" y="40" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="22" font-weight="bold" fill="#1A202C" text-anchor="middle">知识沉淀机制：让 Skill 越用越聪明</text>
+
+  <!-- Box 1: Skill 执行任务 -->
+  <rect x="60" y="80" width="220" height="80" rx="12" fill="#EBF8FF" stroke="#2B6CB0" stroke-width="2" filter="url(#shadow)"/>
+  <text x="170" y="112" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="15" font-weight="bold" fill="#2B6CB0" text-anchor="middle">Skill 执行任务</text>
+  <text x="170" y="135" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#4A5568" text-anchor="middle">评测适配 / 模型结构适配</text>
+  <text x="170" y="152" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#4A5568" text-anchor="middle">数据转换 / 模型转换</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="280" y1="120" x2="350" y2="120" stroke="#4A5568" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="315" y="108" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">遇到问题</text>
+
+  <!-- Box 2: 问题记录 -->
+  <rect x="360" y="80" width="220" height="80" rx="12" fill="#FFF5F5" stroke="#C53030" stroke-width="2" filter="url(#shadow)"/>
+  <text x="470" y="108" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="15" font-weight="bold" fill="#C53030" text-anchor="middle">issues_archive.md</text>
+  <text x="470" y="132" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#4A5568" text-anchor="middle">记录：现象 / 原因 / 解决方式</text>
+  <text x="470" y="152" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">原始素材，不做加工</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="580" y1="120" x2="650" y2="120" stroke="#4A5568" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="615" y="108" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">定期提炼</text>
+
+  <!-- Box 3: knowledge.md -->
+  <rect x="660" y="80" width="220" height="80" rx="12" fill="#F0FFF4" stroke="#276749" stroke-width="2" filter="url(#shadow)"/>
+  <text x="770" y="108" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="15" font-weight="bold" fill="#276749" text-anchor="middle">knowledge.md</text>
+  <text x="770" y="132" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#4A5568" text-anchor="middle">结构化经验：高频问题</text>
+  <text x="770" y="152" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#4A5568" text-anchor="middle">最佳实践 / 避坑指南</text>
+
+  <!-- Feedback arrow: knowledge → skill (curved) -->
+  <path d="M 770 160 L 770 220 Q 770 240 750 240 L 190 240 Q 170 240 170 220 L 170 160" fill="none" stroke="#2B6CB0" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowhead-blue)"/>
+  <text x="470" y="258" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#2B6CB0" text-anchor="middle">执行前读取 → 带着经验执行，避免重复踩坑</text>
+
+  <!-- Lower section: Evolution timeline -->
+  <rect x="60" y="300" width="820" height="190" rx="12" fill="#F7FAFC" stroke="#CBD5E0" stroke-width="1"/>
+  <text x="90" y="330" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">演进效果</text>
+
+  <!-- Timeline -->
+  <line x1="120" y1="380" x2="820" y2="380" stroke="#CBD5E0" stroke-width="2"/>
+
+  <!-- Point 1 -->
+  <circle cx="200" cy="380" r="8" fill="#E2E8F0" stroke="#4A5568" stroke-width="2"/>
+  <text x="200" y="360" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#4A5568" text-anchor="middle">首次使用</text>
+  <text x="200" y="410" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">仅 SKILL.md</text>
+  <text x="200" y="428" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">设计时的规则</text>
+
+  <!-- Point 2 -->
+  <circle cx="400" cy="380" r="8" fill="#BEE3F8" stroke="#2B6CB0" stroke-width="2"/>
+  <text x="400" y="360" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#2B6CB0" text-anchor="middle">使用数次后</text>
+  <text x="400" y="410" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">SKILL.md + knowledge</text>
+  <text x="400" y="428" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">积累边界 case</text>
+
+  <!-- Point 3 -->
+  <circle cx="600" cy="380" r="8" fill="#9AE6B4" stroke="#276749" stroke-width="2"/>
+  <text x="600" y="360" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#276749" text-anchor="middle">持续使用</text>
+  <text x="600" y="410" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">丰富的经验库</text>
+  <text x="600" y="428" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">覆盖大多数场景</text>
+
+  <!-- Point 4 -->
+  <circle cx="780" cy="380" r="8" fill="#276749" stroke="#276749" stroke-width="2"/>
+  <text x="780" y="360" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#276749" text-anchor="middle">成熟期</text>
+  <text x="780" y="410" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">接近专家水平</text>
+  <text x="780" y="428" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#718096" text-anchor="middle">极少遇到新问题</text>
+
+  <!-- Growth curve -->
+  <path d="M 200 370 Q 300 365 400 355 Q 500 342 600 335 Q 700 330 780 328" fill="none" stroke="#276749" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="720" y="320" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#276749">执行质量</text>
+
+  <!-- Analogy -->
+  <text x="470" y="470" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" fill="#4A5568" text-anchor="middle">类比：新人入职 → 做了半年的熟手 → 资深专家</text>
+</svg>

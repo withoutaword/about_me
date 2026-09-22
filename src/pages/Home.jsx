@@ -84,6 +84,9 @@ const Home = () => (
             <article className="featured-project" key={project.slug}>
               <div className="featured-project-number">0{index + 1}</div>
               <div>
+                {project.positioning && (
+                  <p className="featured-project-positioning">{project.positioning}</p>
+                )}
                 <h3>{project.title}</h3>
                 <p>{project.summary}</p>
                 <div className="article-tags">

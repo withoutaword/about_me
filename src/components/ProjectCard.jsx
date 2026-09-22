@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const formatDate = (date) => date
@@ -8,7 +8,7 @@ const formatDate = (date) => date
 
 const ProjectCard = ({ project }) => {
   return (
-    <motion.div 
+    <Motion.div
       className="bg-[var(--bg-secondary)] rounded-lg p-6 card-hover"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -16,6 +16,11 @@ const ProjectCard = ({ project }) => {
       whileHover={{ y: -5 }}
     >
       <p className="text-xs text-[var(--text-muted)] mb-2">{formatDate(project.date)}</p>
+      {project.positioning && (
+        <p className="text-xs font-semibold tracking-widest uppercase text-[var(--primary-color)] mb-2">
+          {project.positioning}
+        </p>
+      )}
       <h3 className="text-xl font-bold text-[var(--text-color)] mb-2">
         <Link className="hover:text-[var(--primary-color)]" to={`/projects/${encodeURIComponent(project.slug)}`}>
           {project.title}
@@ -57,7 +62,7 @@ const ProjectCard = ({ project }) => {
           </a>
         )}
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 

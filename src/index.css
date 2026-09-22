@@ -309,6 +309,14 @@ html {
   font-weight: 700;
 }
 
+.featured-project .featured-project-positioning {
+  color: var(--primary-color);
+  font: 600 0.72rem/1.4 'Courier New', monospace;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.55rem;
+  text-transform: uppercase;
+}
+
 .featured-project p {
   color: var(--text-muted);
   line-height: 1.7;

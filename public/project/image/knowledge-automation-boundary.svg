@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Human and Agent automation boundary</title><desc id="desc">Agents execute repeatable work while humans retain decisions and accountability.</desc>
+  <rect width="1200" height="675" rx="28" fill="#071426"/>
+  <text x="60" y="78" fill="#f8fafc" font-family="Inter,Arial" font-size="34" font-weight="700">DEFINE THE AUTOMATION BOUNDARY</text>
+  <g font-family="Inter,Arial">
+    <rect x="70" y="150" width="470" height="410" rx="24" fill="#0d223c" stroke="#22d3ee" stroke-width="3"/>
+    <rect x="660" y="150" width="470" height="410" rx="24" fill="#17163c" stroke="#8b5cf6" stroke-width="3"/>
+    <text x="305" y="210" text-anchor="middle" fill="#67e8f9" font-size="26" font-weight="700">HUMAN OWNERSHIP</text>
+    <text x="895" y="210" text-anchor="middle" fill="#c4b5fd" font-size="26" font-weight="700">AGENT EXECUTION</text>
+    <g fill="#f8fafc" font-size="20"><text x="120" y="280">✓ Problem framing</text><text x="120" y="335">✓ Architecture decisions</text><text x="120" y="390">✓ Risk assessment</text><text x="120" y="445">✓ Solution approval</text><text x="120" y="500">✓ Final merge</text><text x="710" y="280">✓ Repetitive implementation</text><text x="710" y="335">✓ Code adaptation</text><text x="710" y="390">✓ Configuration</text><text x="710" y="445">✓ Automatic validation</text><text x="710" y="500">✓ Bounded retry</text></g>
+    <path d="M550 355h100" stroke="#38bdf8" stroke-width="4" stroke-dasharray="10 8"/>
+    <circle cx="600" cy="355" r="28" fill="#082f49" stroke="#38bdf8" stroke-width="2"/><text x="600" y="363" text-anchor="middle" fill="#f8fafc" font-size="20" font-weight="700">GATE</text>
+  </g>
+</svg>

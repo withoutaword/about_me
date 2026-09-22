@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360">
+  <defs>
+    <filter id="sh" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="360" fill="#FAFBFC"/>
+  <text x="400" y="30" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="18" font-weight="bold" fill="#1A202C" text-anchor="middle">提效对比：Before vs After</text>
+
+  <!-- 评测工程 Section -->
+  <text x="60" y="70" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" font-weight="bold" fill="#2B6CB0">评测工程（新增 Benchmark）</text>
+
+  <!-- Before bar -->
+  <text x="60" y="100" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#4A5568">优化前</text>
+  <rect x="120" y="86" width="480" height="22" rx="4" fill="#FC8181" filter="url(#sh)"/>
+  <text x="370" y="102" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">~2 天（16 小时）</text>
+
+  <!-- After bar -->
+  <text x="60" y="130" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#4A5568">优化后</text>
+  <rect x="120" y="116" width="5" height="22" rx="4" fill="#48BB78" filter="url(#sh)"/>
+  <text x="140" y="132" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#276749">~10 分钟</text>
+
+  <!-- Percentage -->
+  <rect x="620" y="88" width="140" height="48" rx="8" fill="#F0FFF4" stroke="#276749" stroke-width="1.5"/>
+  <text x="690" y="110" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="20" font-weight="bold" fill="#276749" text-anchor="middle">提效 >99%</text>
+  <text x="690" y="128" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#4A5568" text-anchor="middle">96x 速度提升</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="160" x2="760" y2="160" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- 模型结构 Section -->
+  <text x="60" y="190" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" font-weight="bold" fill="#276749">模型结构实验（全链路）</text>
+
+  <!-- Before bar -->
+  <text x="60" y="220" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#4A5568">优化前</text>
+  <rect x="120" y="206" width="420" height="22" rx="4" fill="#FC8181" filter="url(#sh)"/>
+  <text x="330" y="222" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">3 - 5 天</text>
+
+  <!-- Before sub-bars -->
+  <rect x="120" y="236" width="80" height="16" rx="3" fill="#FEB2B2"/>
+  <text x="160" y="248" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="9" fill="#742A2A" text-anchor="middle">训练适配</text>
+  <rect x="205" y="236" width="140" height="16" rx="3" fill="#FC8181"/>
+  <text x="275" y="248" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="9" fill="#742A2A" text-anchor="middle">下游适配+推理代码</text>
+  <rect x="350" y="236" width="80" height="16" rx="3" fill="#FEB2B2"/>
+  <text x="390" y="248" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="9" fill="#742A2A" text-anchor="middle">转换+验证</text>
+  <rect x="435" y="236" width="80" height="16" rx="3" fill="#FED7D7"/>
+  <text x="475" y="248" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="9" fill="#742A2A" text-anchor="middle">评测对齐</text>
+
+  <!-- After bar -->
+  <text x="60" y="280" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#4A5568">优化后</text>
+  <rect x="120" y="266" width="80" height="22" rx="4" fill="#48BB78" filter="url(#sh)"/>
+  <text x="215" y="282" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#276749">目标 1 天内闭环</text>
+
+  <!-- Percentage -->
+  <rect x="620" y="230" width="140" height="48" rx="8" fill="#F0FFF4" stroke="#276749" stroke-width="1.5"/>
+  <text x="690" y="252" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="20" font-weight="bold" fill="#276749" text-anchor="middle">提效 3-5x</text>
+  <text x="690" y="270" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#4A5568" text-anchor="middle">目标 1 天闭环</text>
+
+  <!-- Bottom note -->
+  <rect x="60" y="310" width="680" height="35" rx="6" fill="#EBF8FF" stroke="#2B6CB0" stroke-width="1"/>
+  <text x="400" y="332" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#2B6CB0" text-anchor="middle">关键：提效是可持续的。每次新 benchmark 接入 / 每次新结构实验，都能直接复用 Skill，累积节省线性增长。</text>
+</svg>

@@ -116,6 +116,7 @@ const projectsPlugin = () => ({
         role: data.role || null,
         scope: data.scope || null,
         outcome: data.outcome || null,
+        positioning: data.positioning || null,
         metrics: Array.isArray(data.metrics) ? data.metrics : [],
         relatedArticle: data.relatedArticle || null,
         techStack: Array.isArray(data.techStack)

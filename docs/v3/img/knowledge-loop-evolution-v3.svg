@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="400" fill="#FAFBFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="20" font-weight="bold" fill="#1A202C" text-anchor="middle">演进效果：Skill 越用越聪明</text>
+
+  <!-- Timeline background -->
+  <rect x="50" y="55" width="800" height="295" rx="12" fill="#F7FAFC" stroke="#CBD5E0" stroke-width="1" filter="url(#shadow)"/>
+
+  <!-- Timeline axis -->
+  <line x1="120" y1="270" x2="800" y2="270" stroke="#CBD5E0" stroke-width="2.5"/>
+
+  <!-- Y-axis label -->
+  <text x="85" y="80" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#276749" text-anchor="middle">执行</text>
+  <text x="85" y="97" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#276749" text-anchor="middle">质量 ↑</text>
+
+  <!-- Point 1 -->
+  <circle cx="200" cy="270" r="10" fill="#E2E8F0" stroke="#4A5568" stroke-width="2.5"/>
+  <text x="200" y="300" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#4A5568" text-anchor="middle">首次使用</text>
+  <text x="200" y="320" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">仅 SKILL.md</text>
+  <text x="200" y="338" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">（设计时的规则）</text>
+
+  <!-- Point 2 -->
+  <circle cx="380" cy="270" r="10" fill="#BEE3F8" stroke="#2B6CB0" stroke-width="2.5"/>
+  <text x="380" y="300" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#2B6CB0" text-anchor="middle">使用数次后</text>
+  <text x="380" y="320" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">+ issues.md 积累</text>
+  <text x="380" y="338" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">（积累边界 case）</text>
+
+  <!-- Point 3 -->
+  <circle cx="570" cy="270" r="10" fill="#9AE6B4" stroke="#276749" stroke-width="2.5"/>
+  <text x="570" y="300" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#276749" text-anchor="middle">持续使用</text>
+  <text x="570" y="320" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">+ knowledge.md 提炼</text>
+  <text x="570" y="338" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">（15 案例 + 20 原则）</text>
+
+  <!-- Point 4 -->
+  <circle cx="740" cy="270" r="10" fill="#276749" stroke="#276749" stroke-width="2.5"/>
+  <text x="740" y="300" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#276749" text-anchor="middle">成熟期</text>
+  <text x="740" y="320" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">接近专家水平</text>
+  <text x="740" y="338" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">（极少遇到新问题）</text>
+
+  <!-- Growth curve (steeper S-curve) -->
+  <path d="M 200 255 C 230 254 270 250 320 235 C 370 215 400 180 440 145 C 480 110 520 90 570 82 C 620 75 670 72 740 70" fill="none" stroke="#276749" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Shaded area under curve -->
+  <path d="M 200 255 C 230 254 270 250 320 235 C 370 215 400 180 440 145 C 480 110 520 90 570 82 C 620 75 670 72 740 70 L 740 270 L 200 270 Z" fill="#276749" fill-opacity="0.1"/>
+
+  <!-- Bottom label -->
+  <text x="450" y="375" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" fill="#4A5568" text-anchor="middle">类比：新人入职 → 做了半年的熟手 → 资深专家（v-model-hf-converter 当前处于第三阶段）</text>
+</svg>

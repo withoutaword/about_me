@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" width="860" height="400">
+  <defs>
+    <filter id="sh" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arr-center" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2B6CB0"/>
+    </marker>
+  </defs>
+
+  <rect width="860" height="400" fill="#FAFBFC"/>
+  <text x="430" y="30" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="18" font-weight="bold" fill="#1A202C" text-anchor="middle">开发人员的角色转变</text>
+
+  <!-- Left: Traditional -->
+  <rect x="30" y="55" width="350" height="300" rx="12" fill="#FFF5F5" stroke="#C53030" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="205" y="82" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="15" font-weight="bold" fill="#C53030" text-anchor="middle">传统模式：亲自执行</text>
+
+  <rect x="60" y="100" width="290" height="36" rx="5" fill="#FED7D7"/>
+  <text x="205" y="123" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#742A2A" text-anchor="middle">写实现代码</text>
+
+  <rect x="60" y="145" width="290" height="36" rx="5" fill="#FED7D7"/>
+  <text x="205" y="168" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#742A2A" text-anchor="middle">手动遵循框架规范</text>
+
+  <rect x="60" y="190" width="290" height="36" rx="5" fill="#FED7D7"/>
+  <text x="205" y="213" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#742A2A" text-anchor="middle">人工 Code Review</text>
+
+  <rect x="60" y="235" width="290" height="36" rx="5" fill="#FED7D7"/>
+  <text x="205" y="258" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#742A2A" text-anchor="middle">口头传授 / 写文档</text>
+
+  <rect x="60" y="280" width="290" height="36" rx="5" fill="#FED7D7"/>
+  <text x="205" y="303" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#742A2A" text-anchor="middle">写单元测试</text>
+
+  <!-- Leverage label -->
+  <text x="205" y="340" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#C53030" text-anchor="middle">杠杆率：1次劳动 → 解决 1 次问题</text>
+
+  <!-- Arrow in middle -->
+  <line x1="395" y1="200" x2="460" y2="200" stroke="#2B6CB0" stroke-width="3" marker-end="url(#arr-center)"/>
+  <text x="427" y="185" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="20" fill="#2B6CB0" text-anchor="middle">→</text>
+
+  <!-- Right: Skill Development -->
+  <rect x="480" y="55" width="350" height="300" rx="12" fill="#F0FFF4" stroke="#276749" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="655" y="82" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="15" font-weight="bold" fill="#276749" text-anchor="middle">Skill 模式：教会 Agent 执行</text>
+
+  <rect x="510" y="100" width="290" height="36" rx="5" fill="#C6F6D5"/>
+  <text x="655" y="118" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#22543D" text-anchor="middle">问题定义 + 边界设计</text>
+  <text x="790" y="118" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#276749" text-anchor="end">Agent 写代码</text>
+
+  <rect x="510" y="145" width="290" height="36" rx="5" fill="#C6F6D5"/>
+  <text x="655" y="163" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#22543D" text-anchor="middle">领域知识结构化提炼</text>
+  <text x="790" y="163" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#276749" text-anchor="end">写入 Prompt</text>
+
+  <rect x="510" y="190" width="290" height="36" rx="5" fill="#C6F6D5"/>
+  <text x="655" y="208" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#22543D" text-anchor="middle">人工门控点 + 验证闭环设计</text>
+  <text x="790" y="208" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#276749" text-anchor="end">自动校验</text>
+
+  <rect x="510" y="235" width="290" height="36" rx="5" fill="#C6F6D5"/>
+  <text x="655" y="253" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#22543D" text-anchor="middle">Code Style Rules + Common Mistakes</text>
+  <text x="790" y="253" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#276749" text-anchor="end">可传承</text>
+
+  <rect x="510" y="280" width="290" height="36" rx="5" fill="#C6F6D5"/>
+  <text x="655" y="298" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#22543D" text-anchor="middle">Worked Examples + 参考 Commit</text>
+  <text x="790" y="298" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#276749" text-anchor="end">可版本化</text>
+
+  <!-- Leverage label -->
+  <text x="655" y="340" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#276749" text-anchor="middle">杠杆率：1次设计 → 团队反复复用</text>
+
+  <!-- Bottom summary -->
+  <rect x="180" y="370" width="500" height="28" rx="6" fill="#EBF8FF" stroke="#2B6CB0" stroke-width="1.2"/>
+  <text x="430" y="389" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#2B6CB0" text-anchor="middle">核心转变：从"我做一次"到"我设计一次，所有人通过 Agent 反复做"</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="800" height="540">
+  <defs>
+    <filter id="sh" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="520" fill="#FAFBFC"/>
+  <text x="400" y="30" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="18" font-weight="bold" fill="#1A202C" text-anchor="middle">SKILL.md 的结构 = 一种"自然语言编程"</text>
+
+  <!-- Main container -->
+  <rect x="40" y="50" width="720" height="455" rx="12" fill="#fff" stroke="#2D3748" stroke-width="2" filter="url(#sh)"/>
+
+  <!-- Header -->
+  <rect x="40" y="50" width="720" height="40" rx="12" fill="#2D3748"/>
+  <rect x="40" y="75" width="720" height="15" fill="#2D3748"/>
+  <text x="400" y="75" font-family="Menlo, Monaco, monospace" font-size="13" fill="#fff" text-anchor="middle">SKILL.md — v-eval-code-adapter</text>
+
+  <!-- Section 1: Metadata -->
+  <rect x="60" y="100" width="680" height="35" rx="6" fill="#EDF2F7"/>
+  <text x="200" y="122" font-family="Menlo, Monaco, monospace" font-size="11" fill="#2D3748">name: v-eval-code-adapter | description: "Use when adding a new benchmark..."</text>
+  <text x="690" y="122" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#718096" text-anchor="end">触发条件</text>
+
+  <!-- Section 1.5: Naming convention note -->
+  <rect x="60" y="143" width="680" height="28" rx="6" fill="#FAF5FF" stroke="#6B46C1" stroke-width="1"/>
+  <text x="80" y="162" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" fill="#6B46C1">命名规范：v-{domain}-{purpose} → v-eval-code-adapter（前缀 + 业务域 + 用途名词）</text>
+
+  <!-- Section 2: Workflow -->
+  <rect x="60" y="180" width="680" height="110" rx="6" fill="#EBF8FF"/>
+  <text x="80" y="202" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#2B6CB0">## Workflow（工作流 = 函数定义 + 条件分支 + 循环）</text>
+
+  <text x="90" y="225" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">Step 1: Fetch Source Code       ← 函数/步骤</text>
+  <text x="90" y="243" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">Step 2: Analyze (if URL... elif local...)  ← 条件分支</text>
+  <text x="90" y="261" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">Step 3: Adapt Code              ← 核心执行逻辑</text>
+  <text x="90" y="279" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">Step 5: Validate (retry max 3)  ← 异常处理 + 循环</text>
+
+  <!-- Section 3: API Reference -->
+  <rect x="60" y="300" width="330" height="80" rx="6" fill="#F0FFF4"/>
+  <text x="80" y="322" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#276749">## Base Class API（类型定义）</text>
+  <text x="90" y="342" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">构造函数签名</text>
+  <text x="90" y="357" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">属性列表: preds, labels, ...</text>
+  <text x="90" y="372" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">返回格式: (result_dict, detail)</text>
+
+  <!-- Section 4: Code Style -->
+  <rect x="410" y="300" width="330" height="80" rx="6" fill="#FFFFF0"/>
+  <text x="430" y="322" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#975A16">## Code Style Rules（Linter）</text>
+  <text x="440" y="342" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">2-space indent, 80-char lines</text>
+  <text x="440" y="357" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">最小覆写策略</text>
+  <text x="440" y="372" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">命名规范: XxxComputeMetrics</text>
+
+  <!-- Section 5: Worked Examples -->
+  <rect x="60" y="390" width="330" height="80" rx="6" fill="#FAF5FF"/>
+  <text x="80" y="412" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#6B46C1">## Worked Examples（测试用例）</text>
+  <text x="90" y="432" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">Example 1: 简单 → judge_single_answer</text>
+  <text x="90" y="447" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">Example 2: 复杂 → get_metrics()</text>
+  <text x="90" y="462" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">Example 3: meta → __init__() 覆写</text>
+
+  <!-- Section 6: Common Mistakes -->
+  <rect x="410" y="390" width="330" height="80" rx="6" fill="#FFF5F5"/>
+  <text x="430" y="412" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#C53030">## Common Mistakes（断言/约束）</text>
+  <text x="440" y="432" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">✗ 直接修改源码</text>
+  <text x="440" y="447" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">✗ 未确认方案就实施</text>
+  <text x="440" y="462" font-family="Menlo, Monaco, monospace" font-size="10" fill="#4A5568">✗ 忽略并行兼容性</text>
+
+  <!-- Right side: Programming analogy -->
+  <text x="755" y="122" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#718096" text-anchor="end">≈ main()</text>
+  <text x="755" y="235" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#718096" text-anchor="end">≈ 程序逻辑</text>
+  <text x="755" y="345" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#718096" text-anchor="end">≈ 接口定义</text>
+  <text x="755" y="425" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10" fill="#718096" text-anchor="end">≈ 测试 + Lint</text>
+
+  <!-- Bottom note -->
+  <text x="400" y="525" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" fill="#4A5568" text-anchor="middle">Prompt 即程序：用结构化的自然语言为 AI 编写精确的执行规范</text>
+</svg>

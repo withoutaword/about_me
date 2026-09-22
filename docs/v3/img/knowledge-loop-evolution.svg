@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="900" height="260">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="260" fill="#FAFBFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="20" font-weight="bold" fill="#1A202C" text-anchor="middle">演进效果：Skill 越用越聪明</text>
+
+  <!-- Timeline background -->
+  <rect x="50" y="55" width="800" height="185" rx="12" fill="#F7FAFC" stroke="#CBD5E0" stroke-width="1" filter="url(#shadow)"/>
+
+  <!-- Timeline axis -->
+  <line x1="120" y1="140" x2="800" y2="140" stroke="#CBD5E0" stroke-width="2.5"/>
+
+  <!-- Point 1 -->
+  <circle cx="200" cy="140" r="10" fill="#E2E8F0" stroke="#4A5568" stroke-width="2.5"/>
+  <text x="200" y="115" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#4A5568" text-anchor="middle">首次使用</text>
+  <text x="200" y="170" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">仅 SKILL.md</text>
+  <text x="200" y="190" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">（设计时的规则）</text>
+
+  <!-- Point 2 -->
+  <circle cx="380" cy="140" r="10" fill="#BEE3F8" stroke="#2B6CB0" stroke-width="2.5"/>
+  <text x="380" y="115" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#2B6CB0" text-anchor="middle">使用数次后</text>
+  <text x="380" y="170" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">SKILL.md + knowledge</text>
+  <text x="380" y="190" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">（积累边界 case）</text>
+
+  <!-- Point 3 -->
+  <circle cx="570" cy="140" r="10" fill="#9AE6B4" stroke="#276749" stroke-width="2.5"/>
+  <text x="570" y="115" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#276749" text-anchor="middle">持续使用</text>
+  <text x="570" y="170" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">丰富的经验库</text>
+  <text x="570" y="190" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">（覆盖大多数场景）</text>
+
+  <!-- Point 4 -->
+  <circle cx="740" cy="140" r="10" fill="#276749" stroke="#276749" stroke-width="2.5"/>
+  <text x="740" y="115" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold" fill="#276749" text-anchor="middle">成熟期</text>
+  <text x="740" y="170" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">接近专家水平</text>
+  <text x="740" y="190" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" fill="#718096" text-anchor="middle">（极少遇到新问题）</text>
+
+  <!-- Growth curve (exponential) -->
+  <path d="M 200 130 C 250 129 300 127 350 122 C 400 117 430 108 470 95 C 520 78 570 68 620 63 C 670 59 700 57 740 56" fill="none" stroke="#276749" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Shaded area under curve -->
+  <path d="M 200 130 C 250 129 300 127 350 122 C 400 117 430 108 470 95 C 520 78 570 68 620 63 C 670 59 700 57 740 56 L 740 140 L 200 140 Z" fill="#276749" fill-opacity="0.08"/>
+  <text x="760" y="53" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold" fill="#276749">执行质量 ↑</text>
+
+  <!-- Bottom label -->
+  <text x="450" y="225" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" fill="#4A5568" text-anchor="middle">类比：新人入职 → 做了半年的熟手 → 资深专家</text>
+</svg>
