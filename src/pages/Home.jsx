@@ -32,28 +32,43 @@ const Home = () => (
           <div className="absolute bottom-1/4 right-[10%] w-96 h-96 bg-[var(--secondary-color)]/10 rounded-full blur-3xl" />
         </div>
         <div className="container relative z-10 mx-auto px-6">
-          <div className="max-w-4xl">
-            <p className="text-sm font-semibold tracking-[0.24em] text-[var(--primary-color)] mb-5">AI ENGINEER · AGENT SYSTEMS</p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] text-[var(--text-color)]">
-              Building reliable systems for models and agents.
-            </h1>
-            <p className="max-w-2xl mt-7 text-lg md:text-xl leading-relaxed text-[var(--text-muted)]">
-              I’m Bruce W, an AI engineer focused on agent systems, evaluation, and AI infrastructure—turning research ideas into tools that work in practice.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-9">
-              <Link className="primary-cta" to="/projects">View Projects</Link>
-              <a className="secondary-cta" href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub ↗</a>
-              <a className="secondary-cta" href={CV_URL} target="_blank" rel="noreferrer">View CV ↗</a>
+          <div className="hero-layout">
+            <div>
+              <p className="text-sm font-semibold tracking-[0.24em] text-[var(--primary-color)] mb-5">AI ENGINEER · AGENT SYSTEMS</p>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] text-[var(--text-color)]">
+                Building reliable systems for models and agents.
+              </h1>
+              <p className="max-w-2xl mt-7 text-lg md:text-xl leading-relaxed text-[var(--text-muted)]">
+                I’m Bruce W, an AI engineer focused on agent systems, evaluation, and AI infrastructure—turning research ideas into tools that work in practice.
+              </p>
+              <div className="flex flex-wrap gap-4 mt-9">
+                <Link className="primary-cta" to="/projects">View Projects</Link>
+                <a className="secondary-cta" href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub ↗</a>
+                <a className="secondary-cta" href={CV_URL} target="_blank" rel="noreferrer">View CV ↗</a>
+              </div>
+              <div className="impact-strip" aria-label="Selected professional impact">
+                <div><strong>2 days → 10 min</strong><span>Benchmark Integration</span></div>
+                <div><strong>5.2×</strong><span>Inference QPS</span></div>
+                <div><strong>~75%</strong><span>Infrastructure Cost Reduction</span></div>
+              </div>
+              <div className="flex flex-wrap gap-x-8 gap-y-3 mt-12 text-sm text-[var(--text-muted)]">
+                <span><strong className="text-[var(--text-color)]">vivo AI Lab</strong> · 2021–Present</span>
+                <span><strong className="text-[var(--text-color)]">IBM</strong> · Software Engineering</span>
+              </div>
             </div>
-            <div className="impact-strip" aria-label="Selected professional impact">
-              <div><strong>2 days → 10 min</strong><span>Benchmark Integration</span></div>
-              <div><strong>5.2×</strong><span>Inference QPS</span></div>
-              <div><strong>~75%</strong><span>Infrastructure Cost Reduction</span></div>
-            </div>
-            <div className="flex flex-wrap gap-x-8 gap-y-3 mt-12 text-sm text-[var(--text-muted)]">
-              <span><strong className="text-[var(--text-color)]">vivo AI Lab</strong> · 2021–Present</span>
-              <span><strong className="text-[var(--text-color)]">IBM</strong> · Software Engineering</span>
-            </div>
+            <figure className="hero-portrait">
+              <div className="hero-portrait-frame">
+                <img
+                  src="/images/bruce-profile.jpg"
+                  alt="Bruce W by the waterfront"
+                  width="1122"
+                  height="1402"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+              <figcaption><span aria-hidden="true" />Bruce W · AI Systems Architect</figcaption>
+            </figure>
           </div>
         </div>
       </section>

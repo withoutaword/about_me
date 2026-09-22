@@ -229,6 +229,65 @@ html {
   background: color-mix(in srgb, var(--primary-color) 10%, transparent);
 }
 
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(17rem, 0.65fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 6rem);
+}
+
+.hero-layout > * {
+  min-width: 0;
+}
+
+.hero-portrait {
+  width: min(100%, 24rem);
+  margin-left: auto;
+}
+
+.hero-portrait-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border: 1px solid color-mix(in srgb, var(--primary-color) 45%, var(--border-color));
+  border-radius: 1.5rem;
+  background: var(--bg-secondary);
+  box-shadow:
+    0 24px 70px color-mix(in srgb, var(--primary-color) 15%, transparent),
+    0 16px 45px rgba(0, 0, 0, 0.22);
+}
+
+.hero-portrait-frame::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  content: '';
+  pointer-events: none;
+}
+
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-portrait figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+  color: var(--text-muted);
+  font: 600 0.72rem/1.4 'Courier New', monospace;
+  letter-spacing: 0.06em;
+}
+
+.hero-portrait figcaption span {
+  width: 1.5rem;
+  height: 1px;
+  background: var(--primary-color);
+}
+
 .section-heading > p {
   color: var(--primary-color);
   font-size: 0.75rem;
@@ -1133,6 +1192,8 @@ body[data-theme="ins"] .article-prose pre {
 }
 
 @media (max-width: 1024px) {
+  .hero-layout { grid-template-columns: 1fr; padding: 4rem 0; }
+  .hero-portrait { width: min(100%, 22rem); margin: 0; }
   .featured-projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -1145,6 +1206,8 @@ body[data-theme="ins"] .article-prose pre {
   .article-pagination a:last-child { text-align: left; }
   .patent-card { grid-template-columns: 1fr; gap: 0.75rem; }
   .award-grid { grid-template-columns: 1fr; }
+  .hero-layout { gap: 3rem; padding: 2rem 0 4rem; }
+  .hero-portrait { width: min(88vw, 22rem); }
   .impact-strip { grid-template-columns: 1fr; gap: 1rem; }
   .featured-projects { grid-template-columns: 1fr; }
   .project-summary-grid,
