@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Career from './pages/Career';
@@ -41,6 +42,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
+      <Analytics />
     </>
   );
 }
